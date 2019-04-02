@@ -1,12 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+      {Schema} = mongoose;
 
-const chapterSchema = new mongoose.Schema({
+const chapterSchema = new Schema({
     ch_title: {
         type: String,
         required: true
     },
     ch_num: {
-        type: SVGAnimatedNumberList,
+        type: Number,
         required: true
     },
     tags: [String],
