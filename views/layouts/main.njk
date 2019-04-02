@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>BookMS Demo | {{pageTitle}}</title>
+
+    <meta name="description" content=""/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    {% for style in styles %}
+      <link rel="stylesheet" type="text/css" media="screen" href="/assets/style/{{style}}.css" />
+    {% endfor %}
+  </head>
+  <body>
+    {% block header %}
+      {% include 'partials/header.html' %}
+    {% endblock %}
+    {% block mainmenu %}
+        {% include 'partials/mainmenu.html' %}
+    {% endblock %}
+    {% block body %}{% endblock %}
+    {% block contents %}
+        {% include 'partials/contents.html' %}
+    {% endblock %}
+  </body>
+</html>
