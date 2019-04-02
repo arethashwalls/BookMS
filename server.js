@@ -2,7 +2,8 @@
 require('dotenv').config();
 const express = require('express'),
       path = require('path'),
-     nunjucks = require('nunjucks');
+      nunjucks = require('nunjucks'),
+      morgan = require('morgan');
 
 //Express setup:
 const app = express();
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || '3000';
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(morgan('tiny'));
 
 //Templating setup:
 nunjucks.configure('views', {
@@ -20,13 +22,8 @@ nunjucks.configure('views', {
 });
 app.set('view engine', 'njk');
 
-app.use('/', require('./routes/titleRoutes'))
-
-// const indexRouter = require('./routes/index');
-// app.use('/', indexRouter);
-
-// const pageRouter = require('./routes/page')
-// app.use('/page', pageRouter);
+const titleRoutes = require('./routes/titleRoutes');
+app.use('/', titleRoutes)
 
 app.listen(PORT, () => {
     console.log('Server listening on: http://localhost:' + PORT);
