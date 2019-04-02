@@ -1,0 +1,9 @@
+{
+  "name": "BookMS",
+  "version": "1.1",
+  "description": "A content management system specializing in self-hosted online books.",
+  "main": "server.js",
+  "repository": "git@github.com:arethashwalls/BookMS.git",
+  "author": "Aretha SH Walls",
+  "license": "MIT"
+}
