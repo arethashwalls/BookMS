@@ -22,9 +22,14 @@ nunjucks.configure('views', {
 });
 app.set('view engine', 'njk');
 
+//Connect to database:
+const db = require('./db/connection');
+
+//Routing:
 const titleRoutes = require('./routes/titleRoutes');
 app.use('/', titleRoutes)
 
+//Start server listening:
 app.listen(PORT, () => {
     console.log('Server listening on: http://localhost:' + PORT);
 })
