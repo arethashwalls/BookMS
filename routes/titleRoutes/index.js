@@ -1,8 +1,8 @@
 const express = require('express'),
   router = express.Router(),
-  { htmlController } = require('../../controllers');
+  { titleController } = require('../../controllers');
 
 router.route('/:url_title')
-    .get(htmlController.getTitlePage);
+    .get(titleController);
 
 module.exports = router;
