@@ -3,12 +3,18 @@
   "version": "1.1",
   "description": "A content management system specializing in self-hosted online books.",
   "main": "server.js",
+  "scripts": {
+    "start": "if-env NODE_ENV=production && yarn run start:prod || yarn run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "nodemon server.js"
+  },
   "repository": "git@github.com:arethashwalls/BookMS.git",
   "author": "Aretha SH Walls",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
+    "if-env": "^1.0.4",
     "mongoose": "^5.4.21",
     "nunjucks": "^3.2.0"
   }

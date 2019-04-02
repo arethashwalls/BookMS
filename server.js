@@ -20,6 +20,8 @@ nunjucks.configure('views', {
 });
 app.set('view engine', 'njk');
 
+app.use('/', require('./routes/titleRoutes'))
+
 // const indexRouter = require('./routes/index');
 // app.use('/', indexRouter);
 
@@ -27,5 +29,5 @@ app.set('view engine', 'njk');
 // app.use('/page', pageRouter);
 
 app.listen(PORT, () => {
-    console.log("Server listening on: http://localhost:" + PORT);
+    console.log('Server listening on: http://localhost:' + PORT);
 })

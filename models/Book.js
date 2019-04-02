@@ -6,6 +6,10 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
+    url_title: {
+        type: String,
+        required: true
+    },
     cover: String,
     authors: [{
         type: Schema.Types.ObjectId,

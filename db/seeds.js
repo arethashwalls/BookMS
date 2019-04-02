@@ -3,6 +3,8 @@ const models = require('../models');
 const seedPages = require('./seed_pages');
 const { Author, Book, Chapter, Page } = models;
 
+const urlify = str => str.toLowerCase().replace(/\s/, '-').slice(0,20);
+
 const getPageArray = chapter => {
     let pageCount = 1;
     let allPages = [];
@@ -36,6 +38,7 @@ db.once('open', function () {
     })
     const scandalInBohemia = new Book({
         title: 'A Scandal in Bohemia',
+        url_title: 'a-scandal-in-bohemia',
         cover: 'images/bohemia-cover.jpg',
         authors: [doyle],
         chapters: [chapter1, chapter2],
