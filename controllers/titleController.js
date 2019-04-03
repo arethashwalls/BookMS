@@ -1,11 +1,15 @@
 const db = require('../models');
+const { authorfy } = require('../utils/formaters');
 
 module.exports = (req, res) => {
         const urlTitle = req.params.url_title;
         db.Book.findOne({url_title: urlTitle})
+        .populate('authors')
         .then(data => {
             res.render('index', {
-                cover: data.cover
+                title: data.title,
+                author: authorfy(data.authors.map(author => author.name)),
+                cover: data.cover,
             })
 
         })

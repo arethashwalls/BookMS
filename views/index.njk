@@ -2,9 +2,14 @@
 {% extends "layouts/main.njk" %}
 
 {% set pageTitle = "Home" %}
-{# {% set styles = ["reset", "main", "header", "cover"]%} #}
+{% set styles = []%}
 
 {% block body %}
-    <h1>Title</h1>
-    <img src={{cover}} />
+    <section class="section">
+        <div class="container has-text-centered">
+            <h1 class="title">{{title}}</h1>
+            <h2 class="subtitle">{{author}}</h2>
+            <img src={{cover}} />
+        </div>
+    </section>
 {% endblock %}
