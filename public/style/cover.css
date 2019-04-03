@@ -1,0 +1,8 @@
+body.has-navbar-fixed-top {
+    padding-top: 0;
+}
+.image img {
+    height: 70vh;
+    width: auto;
+    margin: auto;
+}
