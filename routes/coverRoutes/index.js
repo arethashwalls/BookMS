@@ -1,8 +1,8 @@
 const express = require('express'),
   router = express.Router(),
-  { titleController } = require('../../controllers');
+  { coverController } = require('../../controllers');
 
 router.route('/:url_title')
-    .get(titleController);
+    .get(coverController);
 
 module.exports = router;

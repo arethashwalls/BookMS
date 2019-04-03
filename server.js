@@ -26,8 +26,8 @@ app.set('view engine', 'njk');
 const db = require('./db/connection');
 
 //Routing:
-const titleRoutes = require('./routes/titleRoutes');
-app.use('/', titleRoutes)
+const coverRoutes = require('./routes/coverRoutes');
+app.use('/', coverRoutes)
 
 //Start server listening:
 app.listen(PORT, () => {
