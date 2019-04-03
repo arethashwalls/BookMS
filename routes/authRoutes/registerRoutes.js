@@ -2,13 +2,10 @@ const express = require('express'),
       router = express.Router(),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
-      { loginController } = require('../../controllers')
+      { registerController } = require('../../controllers')
 
 router.route('/register')
-    .post(passport.authenticate('register', { session : false }, { 
-        successRedirect: '/login',
-        failureRedirect: '/register',
-        failureFlash: true 
-    })) 
+    .get(registerController.getRegister)
+    .post(registerController.postRegister) 
 
 module.exports = router;
