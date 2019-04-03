@@ -17,15 +17,13 @@
     {% endfor %}
   </head>
   <body class="has-navbar-fixed-top">
-    {# {% block header %}
-      {% include "partials/header.html" %}
-    {% endblock %} #}
-    {# {% block mainmenu %}
-        {% include "partials/mainmenu.html" %}
-    {% endblock %} #}
-    {% block body %}{% endblock %}
-    {% block contents %}
-        {% include "partials/contents.html" %}
-    {% endblock %}
+    {% if hasHeader %}
+        {% block header %}
+        {% include "partials/header.html" %}
+        {% endblock %}
+    {% endif %}
+    <section class="section">
+        {% block body %}{% endblock %}
+    </section>
   </body>
 </html>

@@ -4,7 +4,9 @@ const passport = require('passport'),
 
 module.exports = {
     getLogin: (req, res) => {
-        res.render('login')
+        res.render('login', {
+            title: 'A Scandal in Bohemia'
+        })
     },
     postLogin: (req, res) => {
         passport.authenticate('login', (req, res) => {

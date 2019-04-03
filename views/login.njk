@@ -2,9 +2,10 @@
 
 {% set pageTitle = "Log In" %}
 {% set styles = []%}
+{% set hasHeader = true %}
 
 {% block body %}
-    <form>
+    <form action="/admin/login" method="post">
         <div class="field">
             <label class="label">Email</label>
             <p class="control has-icons-left has-icons-right">
