@@ -27,7 +27,10 @@ const db = require('./db/connection');
 
 //Routing:
 const coverRoutes = require('./routes/coverRoutes');
-app.use('/', coverRoutes)
+app.use('/', coverRoutes);
+
+const { registerRoutes, loginRoutes } = require('./routes/authRoutes');
+app.use('/admin', loginRoutes, registerRoutes);
 
 //Start server listening:
 app.listen(PORT, () => {

@@ -5,34 +5,34 @@ const passport = require('passport'),
 passport.use('register', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
-}, (username, password, done) => {
+}, (username, password, next) => {
     User.create({
         email: username,
         password: password
     })
-    .then(user => done(null, user))
-    .catch(err => done(error))
+    .then(user => next(null, user))
+    .catch(err => next(error))
 }));
 
 passport.use('login', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
-}, (username, password, done) => {
+}, (username, password, next) => {
     User.findOne({
         email: username,
         password: password
     })
     .then(user => {
-        if(!user) return done(null, false, { message : 'User not found.'});
+        if(!user) return next(null, false, { message : 'User not found.'});
         user.isValidPassword(password)
         .then(validate => {
             if(!validate) {
-                return done(null, false, { message : 'Incorrect password.'});
+                return next(null, false, { message : 'Incorrect password.'});
             } else {
-                done(null, user);
+                next(null, user);
             }
         })
         .catch(err => console.log(err));
     })
-    .catch(err => done(error))
+    .catch(err => next(error))
 }));
