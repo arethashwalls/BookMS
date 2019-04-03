@@ -1,4 +1,5 @@
 const passport = require('passport');
+require('../auth/auth');
 
 module.exports = {
     getRegister: (req, res) => {

@@ -23,7 +23,7 @@ nunjucks.configure('views', {
 app.set('view engine', 'njk');
 
 //Connect to database:
-const db = require('./db/connection');
+require('./db/connection');
 
 //Routing:
 const coverRoutes = require('./routes/coverRoutes');
