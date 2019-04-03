@@ -8,7 +8,7 @@ const userSchema = new Schema({
         required : 'An email address is required.',
         unique : true,
         validate: [
-            (email) => email.test(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/),
+            (email) => /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email),
             'Please enter a valid email address.'
         ]
     },
@@ -19,7 +19,7 @@ const userSchema = new Schema({
 });
 
 userSchema.pre('save', next => {
-    if (!user.isModified('password')) return next();
+    if (!this.isModified('password')) return next();
     bcrypt.genSalt(10)
     .then(salt => {
         bcrypt.hash(this.password, salt)

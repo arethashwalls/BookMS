@@ -6,6 +6,6 @@ const express = require('express'),
 
 router.route('/register')
     .get(registerController.getRegister)
-    .post(registerController.postRegister) 
+    .post(registerController.postRegisterAuth, registerController.postRegisterRedir) 
 
 module.exports = router;

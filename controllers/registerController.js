@@ -7,9 +7,8 @@ module.exports = {
             title: 'A Scandal in Bohemia'
         })
     },
-    postRegister: passport.authenticate('register', { session : false }, { 
-        successRedirect: '/login',
-        failureRedirect: '/register',
-        failureFlash: true 
-    })
+    postRegisterAuth: passport.authenticate('register', { session : false }),
+    postRegisterRedir: (req, res, next) => {
+        res.redirect('/admin/login')
+    }
 }

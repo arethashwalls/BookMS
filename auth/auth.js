@@ -2,16 +2,27 @@ const passport = require('passport'),
       LocalStrategy = require('passport-local').Strategy,
       { User } = require('../models');
 
+    //   passport.use('signup', new localStrategy({
+    //     usernameField : 'email',
+    //     passwordField : 'password'
+    //   }, async (email, password, done) => {
+    //       try {
+    //         //Save the information provided by the user to the the database
+    //         const user = await UserModel.create({ email, password });
+    //         //Send the user information to the next middleware
+    //         return done(null, user);
+    //       } catch (error) {
+    //         done(error);
+    //       }
+    //   }));
+
 passport.use('register', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
-}, (username, password, next) => {
-    User.create({
-        email: username,
-        password: password
-    })
+}, (email, password, next) => {
+    User.create({ email, password })
     .then(user => next(null, user))
-    .catch(err => next(error))
+    .catch(err => next(err))
 }));
 
 passport.use('login', new LocalStrategy({
