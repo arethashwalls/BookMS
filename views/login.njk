@@ -1,0 +1,29 @@
+{% extends "layouts/main.njk" %}
+
+{% set pageTitle = "Log In" %}
+{% set styles = []%}
+
+{% block body %}
+    <form>
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Text input"/>
+            </div>
+        </div>
+
+        <div class="field">
+            <label class="label">Password</label>
+            <p class="control has-icons-left">
+                <input class="input" type="password" placeholder="Password">
+                <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span>
+            </p>
+        </div>
+
+        <div class="control">
+            <button class="button is-primary" type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}
