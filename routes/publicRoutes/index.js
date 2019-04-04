@@ -1,6 +1,6 @@
 const express = require('express'),
   router = express.Router(),
-  { coverController } = require('../../controllers');
+  { coverController } = require('../../controllers/publicControllers');
 
 router.route('/:url_title')
     .get(coverController);

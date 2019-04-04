@@ -1,5 +1,5 @@
-const db = require('../models');
-const { authorfy } = require('../utils/formaters');
+const db = require('../../models');
+const { authorfy } = require('../../utils/formaters');
 
 module.exports = (req, res) => {
         const urlTitle = req.params.url_title;
