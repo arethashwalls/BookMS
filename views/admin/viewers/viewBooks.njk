@@ -1,11 +1,16 @@
 {% extends "layouts/desk.njk" %}
 
+{% set deskPageName="Your Books" %}
+
 {% block deskBody %}
+    <h3 class="title is-size-4 has-text-primary">Your books:</h3>
     <div class="tile is-ancestor">
         <div class="tile is-parent">
             {% for book in books %}
-                <article class="tile is-child">
-                    <p>{{book.title}}</p>
+                <article class="tile is-child is-4">
+                    <div class="box">
+                        <p>{{book.title}}</p>
+                    </div>
                 </article>
             {% endfor %}
         </div>

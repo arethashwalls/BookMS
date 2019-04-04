@@ -1,7 +1,16 @@
+.desk-body {
+    padding-top: 1rem;
+}
 .menu-list a {
     display: inline-block;
 }
 .menu-list a.icon {
     padding-left: 0;
     margin-left: -0.5rem;
+}
+.tile.is-parent {
+    flex-wrap: wrap;
+}
+.tile.is-child .box {
+    margin: 0 1rem 1rem 0;
 }
