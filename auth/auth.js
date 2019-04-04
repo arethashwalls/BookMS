@@ -52,5 +52,5 @@ passport.use('login', new LocalStrategy({
         })
         .catch(err => console.log(err));
     })
-    .catch(err => next(error))
+    .catch(err => next(err))
 }));
