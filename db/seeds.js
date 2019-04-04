@@ -3,6 +3,8 @@ const models = require('../models');
 const seedPages = require('./seed_pages');
 const { Author, Book, Chapter, Page } = models;
 
+console.log('Seeding')
+
 const urlify = str => str.toLowerCase().replace(/\s/, '-').slice(0,20);
 
 const getPageArray = chapter => {
