@@ -3,9 +3,7 @@ const models = require('../models');
 const seedPages = require('./seed_pages');
 const { Author, Book, Chapter, Page } = models;
 
-console.log('Seeding')
-
-const urlify = str => str.toLowerCase().replace(/\s/, '-').slice(0,20);
+console.log('\nSeeding the database.\n');
 
 const getPageArray = chapter => {
     let pageCount = 1;
@@ -49,5 +47,6 @@ db.once('open', function () {
     doyle.save();
     chapter1.save();
     chapter2.save();
-    scandalInBohemia.save();
+    scandalInBohemia.save()
+    .then(() => process.exit)
 });
