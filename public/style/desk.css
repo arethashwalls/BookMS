@@ -1,0 +1,7 @@
+.menu-list a {
+    display: inline-block;
+}
+.menu-list a.icon {
+    padding-left: 0;
+    margin-left: -0.5rem;
+}

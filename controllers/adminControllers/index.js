@@ -1,6 +1,6 @@
 module.exports = {
     authControllers: require('./authControllers'),
     editControllers: require('./editControllers'),
-    deskController: require('./deskController'),
+    viewControllers: require('./viewControllers'),
     jwtVerify: require('./jwtVerify')
 }

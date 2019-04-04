@@ -2,11 +2,11 @@ const express = require('express'),
       router = express.Router(),
       authRoutes = require('./authRoutes'),
       editRoutes = require('./editRoutes'),
-      deskRoutes = require('./deskRoutes'),
+      viewRoutes = require('./viewRoutes'),
       jwtVerify = require('../../controllers').adminControllers.jwtVerify;
 
 router.use('/', authRoutes);
 router.use('/edit', jwtVerify, editRoutes);
-router.use('/desk', deskRoutes)
+router.use('/view', viewRoutes)
 
 module.exports = router;

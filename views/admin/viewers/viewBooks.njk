@@ -1,0 +1,13 @@
+{% extends "layouts/desk.njk" %}
+
+{% block deskBody %}
+    <div class="tile is-ancestor">
+        <div class="tile is-parent">
+            {% for book in books %}
+                <article class="tile is-child">
+                    <p>{{book.title}}</p>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

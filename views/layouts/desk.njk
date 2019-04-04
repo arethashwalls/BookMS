@@ -1,0 +1,26 @@
+{% extends "layouts/main.njk" %}
+
+{% set pageTitle = "Your Desk" %}
+{% set styles = ["desk"]%}
+{% set hasHeader = true %}
+
+{% block body %}
+    <div class="columns">
+        <div class="column">
+            {% include "partials/deskDrawer.html" %}
+        </div>
+        <div class="column">
+            <div class="container">
+                <div class="container has-text-centered">
+                    <h1 class="title">Welcome to your desk,
+                        {{username}}.</h1>
+                </div>
+                <hr/>
+                <section class="section">
+                    {% block deskBody %}{% endblock %}
+                </section>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
