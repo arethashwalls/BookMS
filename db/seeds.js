@@ -47,6 +47,5 @@ db.once('open', function () {
     doyle.save();
     chapter1.save();
     chapter2.save();
-    scandalInBohemia.save()
-    .then(() => process.exit)
+    scandalInBohemia.save();
 });
