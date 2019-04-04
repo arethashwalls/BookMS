@@ -29,7 +29,7 @@ app.set('view engine', 'njk');
 require('./db/connection');
 
 //Import Passport strategies:
-require('./auth/auth');
+require('./auth');
 
 //Routing:
 const routes = require('./routes');
