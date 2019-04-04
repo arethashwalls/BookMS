@@ -32,8 +32,11 @@ require('./auth/auth');
 const coverRoutes = require('./routes/coverRoutes');
 app.use('/', coverRoutes);
 
-const { authRoutes: {registerRoutes, loginRoutes } }= require('./routes/adminRoutes');
+const { authRoutes: {registerRoutes, loginRoutes } } = require('./routes/adminRoutes');
 app.use('/admin', loginRoutes, registerRoutes);
+
+const { bookRoutes } = require('./routes/adminRoutes/editRoutes');
+app.use('/admin/edit', bookRoutes);
 
 //Start server listening:
 app.listen(PORT, () => {

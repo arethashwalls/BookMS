@@ -1,6 +1,8 @@
 const express = require('express'),
       router = express.Router(),
-      { bookController } = require('../../../controllers');
+      { bookController } = require('../../../controllers/editControllers');
 
-router.route('/')
-    .get('/')
+router.route('/books')
+    .get(bookController.getBookEdit)
+
+module.exports = router;
