@@ -2,7 +2,7 @@ const express = require('express'),
       router = express.Router(),
       passport = require('passport'),
       jwt = require('jsonwebtoken'),
-      { registerController } = require('../../../controllers/authControllers')
+      { registerController } = require('../../../controllers/adminControllers/authControllers')
 
 router.route('/')
     .get(registerController.getRegister)

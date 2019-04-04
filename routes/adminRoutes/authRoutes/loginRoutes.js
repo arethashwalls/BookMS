@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router(),
-      { loginController } = require('../../../controllers/authControllers');
+      { loginController } = require('../../../controllers/adminControllers/authControllers');
 
 router.route('/')
     .get(loginController.getLogin)
