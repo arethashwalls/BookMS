@@ -32,7 +32,9 @@ userSchema.pre('save', function(next) {
     .catch(err => console.log(err));
 });
 
-userSchema.methods.isValidPassword = password =>  bcrypt.compare(password, this.password);
+userSchema.methods.isValidPassword = function(password) {
+    bcrypt.compare(password, this.password)
+}
 // userSchema.methods.isValidPassword = password => true
 
 
