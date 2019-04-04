@@ -25,6 +25,8 @@ app.set('view engine', 'njk');
 //Connect to database:
 require('./db/connection');
 
+require('./auth/auth')
+
 //Routing:
 const coverRoutes = require('./routes/coverRoutes');
 app.use('/', coverRoutes);

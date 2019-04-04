@@ -43,6 +43,8 @@ passport.use(new JWTStrategy({
     }
 }));
 
+module.exports = passport;
+
 // //This verifies that the token sent by the user is valid
 // passport.use(new JWTstrategy({
 //   //secret we used to sign our JWT
