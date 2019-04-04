@@ -8,6 +8,9 @@
     padding-left: 0;
     margin-left: -0.5rem;
 }
+.stats li {
+    padding: 0.5em 0.75em;
+}
 .tile.is-parent {
     flex-wrap: wrap;
 }
