@@ -3,7 +3,7 @@ const { authorfy } = require('../../../utils/formaters');
 
 module.exports = {
     getViewBooks: (req, res) => {
-        axios.get('http://localhost:3000/api/books/all')
+        axios.get('/api/books/all')
         .then(response => {
             const { data: books } = response;
             books.forEach(book => {
