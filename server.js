@@ -26,7 +26,7 @@ nunjucks.configure('views', {
 app.set('view engine', 'njk');
 
 //Connect to database:
-require('./db/connection');
+require('./db').connection;
 
 //Import Passport strategies:
 require('./auth');
