@@ -4,7 +4,7 @@ const express = require('express'),
       jwt = require('jsonwebtoken'),
       { registerController } = require('../../../controllers/authControllers')
 
-router.route('/register')
+router.route('/')
     .get(registerController.getRegister)
     .post(registerController.postRegisterAuth, registerController.postRegisterRedir) 
 
