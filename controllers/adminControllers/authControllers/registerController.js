@@ -2,7 +2,7 @@ const passport = require('passport');
 
 module.exports = {
     getRegister: (req, res) => {
-        res.render('register', {
+        res.render('auth/register', {
             title: 'A Scandal in Bohemia'
         })
     },

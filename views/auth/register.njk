@@ -1,0 +1,45 @@
+{% extends "layouts/main.njk" %}
+
+{% set pageTitle = "Registr" %}
+{% set styles = []%}
+{% set hasHeader = true %}
+
+{% block body %}
+    <div class="container">
+        <div class="container has-text-centered">
+            <h1 class="title">Welcome!</h1>
+            <h2 class="subtitle">Please create an account to continue.</h2>
+        </div>
+        <hr/>
+        <div class="columns">
+            <div class="column is-4">
+                <img src="https://via.placeholder.com/300x400"/>
+            </div>
+            <div class="column is-8">
+                <form action="/admin/register" method="post">
+                    <div class="field">
+                        <label class="label">Email</label>
+                        <p class="control has-icons-left has-icons-right">
+                            <input class="input" type="email" name="email" placeholder="Email">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="field">
+                        <label class="label">Password</label>
+                        <p class="control has-icons-left">
+                            <input class="input" type="password" name="password" placeholder="Password">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="control">
+                        <button class="button is-primary" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
