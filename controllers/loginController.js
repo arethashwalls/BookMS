@@ -9,7 +9,7 @@ module.exports = {
         })
     },
     postLogin: (req, res) => {
-        passport.authenticate('login', (req, res) => {
+        passport.authenticate('login', (req, res, next) => {
             res.redirect('/a-scandal-in-bohemia');
         })
         // // passport.authenticate('login', (err, user) => {
