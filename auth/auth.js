@@ -39,9 +39,9 @@ passport.use('login', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, (email, password, next) => {
+    console.log('hi')
     User.findOne({ email })
     .then(user => {
-        console.log(user);
         if(!user) return next(null, false, { message : 'User not found.'});
         user.isValidPassword(password)
         .then(validate => {

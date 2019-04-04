@@ -4,6 +4,6 @@ const express = require('express'),
 
 router.route('/login')
     .get(loginController.getLogin)
-    .post(loginController.postLogin);
+    .post(loginController.postLoginAuth, loginController.postLoginRedir);
 
 module.exports = router;
