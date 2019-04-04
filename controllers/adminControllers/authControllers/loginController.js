@@ -17,7 +17,7 @@ module.exports = {
                 _id: user._id,
                 email: user.email
             }
-            const token = jwt.sign({user: body}, "It's a secret!");
+            const token = jwt.sign({user: body}, process.env.AUTH_SECRET);
             res.json(token);
         });
     }
