@@ -5,6 +5,9 @@ const express = require('express'),
       nunjucks = require('nunjucks'),
       morgan = require('morgan');
 
+//Import .env file:
+require('dotenv').config()
+
 //Express setup:
 const app = express();
 const PORT = process.env.PORT || '3000';

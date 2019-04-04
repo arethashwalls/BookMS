@@ -33,7 +33,7 @@ passport.use('login', new LocalStrategy({
 }));
 
 passport.use(new JWTStrategy({
-    secretOrKey: "It's a secret!",
+    secretOrKey: process.env.AUTH_SECRET,
     jwtFromRequest: ExtractJwt.fromUrlQueryParameter('secret_token')
 }, (token, next) => {
     try {
