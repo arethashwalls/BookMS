@@ -10,7 +10,7 @@ module.exports = {
     },
     postLogin: (req, res) => {
         passport.authenticate('login', (req, res) => {
-            res.redirect('/');
+            res.redirect('/a-scandal-in-bohemia');
         })
         // // passport.authenticate('login', (err, user) => {
         //     if(err || !user) {
