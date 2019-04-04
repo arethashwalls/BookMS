@@ -29,10 +29,7 @@ passport.use('login', new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
 }, (username, password, next) => {
-    User.findOne({
-        email: username,
-        password: password
-    })
+    User.findOne({ email })
     .then(user => {
         if(!user) return next(null, false, { message : 'User not found.'});
         user.isValidPassword(password)
