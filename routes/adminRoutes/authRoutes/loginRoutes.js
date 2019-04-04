@@ -1,6 +1,6 @@
 const express = require('express'),
       router = express.Router(),
-      { loginController } = require('../../controllers');
+      { loginController } = require('../../../controllers');
 
 router.route('/login')
     .get(loginController.getLogin)

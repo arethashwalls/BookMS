@@ -29,7 +29,7 @@ require('./db/connection');
 const coverRoutes = require('./routes/coverRoutes');
 app.use('/', coverRoutes);
 
-const { registerRoutes, loginRoutes } = require('./routes/authRoutes');
+const { authRoutes: {registerRoutes, loginRoutes } }= require('./routes/adminRoutes');
 app.use('/admin', loginRoutes, registerRoutes);
 
 //Start server listening:

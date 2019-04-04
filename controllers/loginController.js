@@ -17,8 +17,8 @@ module.exports = {
                 _id: user._id,
                 email: user.email
             }
-            const token = jwt.sign({user: body}, "It's a secret!")
-        // res.redirect('/a-scandal-in-bohemia');
+            const token = jwt.sign({user: body}, "It's a secret!");
+            res.json(token);
         });
     }
 }
