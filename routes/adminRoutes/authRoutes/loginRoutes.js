@@ -1,7 +1,9 @@
+//Imports:
 const express = require('express'),
       router = express.Router(),
       { loginController } = require('../../../controllers').adminControllers.authControllers;
 
+//Routes:
 router.route('/')
     .get(loginController.getLogin)
     .post(loginController.postLoginAuth, loginController.postLoginRedir);

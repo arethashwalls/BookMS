@@ -1,8 +1,7 @@
 const express = require('express'),
-  router = express.Router(),
-  { coverController } = require('../../controllers/publicControllers');
+      router = express.Router(),
+      coverRoutes = require('./coverRoutes');
 
-router.route('/:url_title')
-    .get(coverController);
+router.use('/:url_title', coverRoutes);
 
 module.exports = router;
