@@ -9,7 +9,11 @@
             {% for book in books %}
                 <article class="tile is-child is-4">
                     <div class="box">
-                        <p>{{book.title}}</p>
+                        <h5 class="title">{{book.title}}</h5>
+                        <p class="subtitle">{{book.authors}}</p>
+                        {% if book.cover %}
+                            <img src="{{book.cover}}" />
+                        {% endif %}
                     </div>
                 </article>
             {% endfor %}
