@@ -5,5 +5,6 @@ const express = require('express'),
 
 router.route('/')
     .get(newBookController.getNewBook)
+    .post(newBookController.postNewBook)
 
 module.exports = router;

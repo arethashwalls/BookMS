@@ -1,4 +1,5 @@
 const { User, Book } = require('../../../models');
+const { urlify } = require('../../../utils').formaters;
 
 module.exports = {
     getNewBook: (req, res) => {
@@ -17,9 +18,12 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewBook: (req, res) => {
-        Book.create(req.body)
+        const { title, cover, synopsis } = req.body;
+        const authors = [];
+        const url_title = urlify(title);
+        Book.create({title, url_title, authors, cover, synopsis})
         .then(newBook => {
-            console.log('\nBook created: ' + book.title + '\n');
+            console.log('\nBook created: ' + newBook.title + '\n');
             User.findOneAndUpdate({}, {
                 $push: {books: newBook._id}
             })

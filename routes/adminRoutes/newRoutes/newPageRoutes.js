@@ -5,5 +5,6 @@ const express = require('express'),
 
 router.route('/')
     .get(newPageController.getNewPage)
+    .post(newPageController.postNewPage)
 
 module.exports = router;

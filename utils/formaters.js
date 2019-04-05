@@ -9,5 +9,6 @@ module.exports = {
                 const allButLast = authorArr.slice(0, authorArr.length - 2).join(', ');
                 return `${allButLast} and ${authorArr[authorArr.length - 1]}`
         }
-    }
+    },
+    urlify: titleStr =>  titleStr.toLowerCase().split(' ').slice(0,5).join('-')
 }
