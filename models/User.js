@@ -15,6 +15,10 @@ const userSchema = new Schema({
     password : {
         type : String,
         required : true 
+    },
+    siteTitle: {
+        type: String,
+        required: true
     }
 });
 

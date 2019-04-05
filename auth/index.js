@@ -8,10 +8,12 @@ const passport = require('passport'),
 passport.use('register', new LocalStrategy({
     //Name fields appropriately:
     usernameField: 'email',
-    passwordField: 'password'
-}, (email, password, next) => {
+    passwordField: 'password',
+    passReqToCallback: true
+}, (req, email, password, next) => {
+    const { siteTitle } = req.body;
     //Attempt to create new user:
-    User.create({ email, password })
+    User.create({ email, password, siteTitle })
     .then(user => next(null, user))
     .catch(err => next(err))
 }));
