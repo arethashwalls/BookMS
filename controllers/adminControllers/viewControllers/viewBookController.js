@@ -1,11 +1,11 @@
-const axios = require('axios'),
-      { formaters, setUrl } = require('../../../utils/'),
+const { User } = require('../../../models'),
+      { formaters } = require('../../../utils/'),
       { authorfy } = formaters;
 
 module.exports = {
     getViewBooks: (req, res) => {
-        const url = setUrl('api/books/all');
-        axios.get(url)
+        User.findOne({})
+        .populate('books')
         .then(response => {
             const { books, siteTitle } = response.data;
             books.forEach(book => {

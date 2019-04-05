@@ -1,10 +1,9 @@
-const axios = require('axios'),
-      { setUrl } = require('../../../utils/');
+const { User } = require('../../../models');
 
 module.exports = {
     getViewPages: (req, res) => {
-        const url = setUrl('api/pages/all');
-        axios.get(url)
+        User.findOne({})
+        .populate('stdalone_pages')
         .then(response => {
             const { stdalone_pages, site_title } = response.data;
             res.render('admin/viewers/viewPages', {

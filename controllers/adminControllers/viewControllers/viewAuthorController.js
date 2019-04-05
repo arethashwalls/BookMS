@@ -1,10 +1,9 @@
-const axios = require('axios'),
-      { setUrl } = require('../../../utils/');
+const { User } = require('../../../models');
 
 module.exports = {
     getViewAuthors: (req, res) => {
-        const url = setUrl('api/authors/all');
-        axios.get(url)
+        User.findOne({})
+        .populate('authors')
         .then(response => {
             const { authors, siteTitle } = response.data;
             res.render('admin/viewers/viewAuthors', {
