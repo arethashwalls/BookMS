@@ -1,6 +1,5 @@
 const passport = require('passport'),
-      jwt = require('jsonwebtoken'),
-      { User } = require('../../../models');
+      jwt = require('jsonwebtoken');
 
 module.exports = {
     getLogin: (req, res) => {
@@ -16,9 +15,10 @@ module.exports = {
             const body = {
                 _id: user._id,
                 email: user.email
-            }
+            };
             const token = jwt.sign({user: body}, process.env.AUTH_SECRET);
-            res.json(token);
+            res.cookie('access_token', token);
+            res.redirect('/admin/view/books');
         });
     }
 }

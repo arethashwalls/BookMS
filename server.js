@@ -1,6 +1,7 @@
 //Imports:
 require('dotenv').config();
 const express = require('express'),
+      cookieParser = require('cookie-parser'),
       path = require('path'),
       nunjucks = require('nunjucks'),
       morgan = require('morgan');
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(morgan('tiny'));
+app.use(cookieParser());
 
 //Templating setup:
 nunjucks.configure('views', {
