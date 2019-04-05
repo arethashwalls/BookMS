@@ -1,10 +1,8 @@
-const axios = require('axios'),
-      { setUrl } = require('../../../utils/');
+const { User } = require('../../../models');
 
 module.exports = {
     getNewBook: (req, res) => {
-        const url = setUrl('api/user/title');
-        axios.get(url)
+        User.findOne({}, 'siteTitle')
         .then(response => {
             const siteTitle = response.data;
             res.render('admin/viewers/viewBooks', {
