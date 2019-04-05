@@ -6,16 +6,14 @@
     <div class="tile is-ancestor">
         <div class="tile is-12 is-parent">
             {% for page in stdalonePages %}
-                <div class="box">
-                    <article class="tile is-child is-4">
-                        <div class="box">
-                            <h5 class="title">{{page.p_title}}</h5>
-                            <p class="subtitle">{{page.p_authors}}</p>
-                            <hr/>
-                            <p>{{page.p_content}}</p>
-                        </div>
-                    </article>
-                </div>
+                <article class="tile is-child is-4">
+                    <div class="box">
+                        <h5 class="title">{{page.p_title}}</h5>
+                        <p class="subtitle">{{page.p_authors}}</p>
+                        <hr/>
+                        <p>{{page.p_content}}</p>
+                    </div>
+                </article>
             {% endfor %}
             <article class="tile is-child is-4">
                 <div class="box has-background-dark">

@@ -5,10 +5,10 @@ module.exports = {
         User.findOne({})
         .populate('authors')
         .then(response => {
-            const { authors, siteTitle } = response;
+            const { authors, siteTitle, books } = response;
             res.render('admin/viewers/viewAuthors', {
                 username: 'Arthur',
-                num: 3,
+                num: books.length,
                 siteTitle,
                 authors
             });

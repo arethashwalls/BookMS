@@ -10,5 +10,8 @@ module.exports = {
                 return `${allButLast} and ${authorArr[authorArr.length - 1]}`
         }
     },
-    urlify: titleStr =>  titleStr.toLowerCase().split(' ').slice(0,5).join('-')
+    urlify: titleStr =>  titleStr.toLowerCase().split(' ').slice(0,5).join('-'),
+    truncate: paragraph =>  paragraph.split(' ').length > 25
+            ? paragraph.split(' ').slice(0, 25).join(' ') + '…'
+            : paragraph
 }

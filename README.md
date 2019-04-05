@@ -9,3 +9,4 @@
 * add lifespan to cookies and logout button
 * figure out how to serve securely
 * turn author selector in new book into checkboxes or something
+* Add intructional text

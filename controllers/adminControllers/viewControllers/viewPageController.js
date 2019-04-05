@@ -1,4 +1,5 @@
 const { User } = require('../../../models');
+const { truncate } = require('../../../utils').formaters;
 
 module.exports = {
     getViewPages: (req, res) => {
@@ -6,6 +7,7 @@ module.exports = {
         .populate('stdalone_pages')
         .then(response => {
             const { stdalone_pages, site_title } = response;
+            stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
                 num: 3, 
