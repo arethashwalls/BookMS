@@ -3,24 +3,28 @@
 {% set deskPageName = "Your Authors" %}
 
 {% block deskBody %}
-    {% for author in authors %}
-        <div class="box">
-            <article class="level">
-                <h5 class="title">{{author.name}}</h5>
-                {% if author.bio %}
-                    <p>{{author.bio}}</p>
-                {% endif %}
+    <div class="tile is-ancestor">
+        <div class="tile is-12 is-parent">
+            {% for author in authors %}
+                <article class="tile is-child is-4">
+                    <div class="box">
+                        <h5 class="title">{{author.name}}</h5>
+                        <p>{{author.bio}}</p>
+                    </div>
+                </article>
+            {% endfor %}
+            <article class="tile is-child is-4">
+                <div class="box has-background-dark">
+                    <a href="/admin/new/author">
+                        <h5 class="title is-inline-flex has-text-white">
+                            Create a new author.
+                            <span class="icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </span>
+                        </h5>
+                    </a>
+                </div>
             </article>
         </div>
-    {% endfor %}
-    <div class="box has-background-dark">
-        <article class="level">
-            <a href="/admin/new/author">
-                <h5 class="title is-inline-flex has-text-white">
-                    Create a new author
-                    <span class="icon"><i class="fas fa-plus-circle"></i></span>
-                </h5>
-            </a>
-        </article>
     </div>
 {% endblock %}
