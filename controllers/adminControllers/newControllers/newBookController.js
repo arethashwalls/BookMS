@@ -1,4 +1,4 @@
-const { User } = require('../../../models');
+const { User, Book } = require('../../../models');
 
 module.exports = {
     getNewBook: (req, res) => {
@@ -12,6 +12,19 @@ module.exports = {
                 isNew: true,
                 isBook: true,
                 hasForm: true
+            })
+        })
+        .catch(err => console.log(err));
+    },
+    postNewBook: (req, res) => {
+        Book.create(req.body)
+        .then(newBook => {
+            console.log('\nBook created: ' + book.title + '\n');
+            User.findOneAndUpdate({}, {
+                $push: {books: newBook._id}
+            })
+            .then(user => {
+                res.redirect('../view/books');
             })
         })
         .catch(err => console.log(err));
