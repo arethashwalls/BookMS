@@ -13,7 +13,7 @@ module.exports = {
             });
             res.render('admin/viewers/viewBooks', {
                 username: 'Arthur',
-                num: 3,
+                num: books.length,
                 siteTitle,
                 books
             });

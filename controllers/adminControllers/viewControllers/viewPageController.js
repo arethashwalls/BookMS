@@ -6,11 +6,11 @@ module.exports = {
         User.findOne({})
         .populate('stdalone_pages')
         .then(response => {
-            const { stdalone_pages, site_title } = response;
+            const { stdalone_pages, site_title, books } = response;
             stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
-                num: 3, 
+                num: books.length,
                 siteTitle: site_title,
                 stdalonePages: stdalone_pages
             });
