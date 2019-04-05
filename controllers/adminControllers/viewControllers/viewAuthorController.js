@@ -10,7 +10,8 @@ module.exports = {
             res.render('admin/viewers/viewAuthors', {
                 username: 'Arthur',
                 num: 3, 
-                title: 'alsdhjflsj',
+                siteTitle: "A:LJFHWEJHF",
+                bookTitle: ';laksdjf',
                 authors
             });
         })

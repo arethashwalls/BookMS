@@ -12,6 +12,7 @@ module.exports = {
                 num: 3, 
                 siteTitle: 'alsdhjflsj',
                 bookTitle: 'blah',
+                
                 books
             });
         })

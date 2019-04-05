@@ -15,6 +15,8 @@ module.exports = {
                 username: 'Arthur',
                 num: 3, 
                 title: 'alsdhjflsj',
+                siteTitle: "A:LJFHWEJHF",
+                bookTitle: ';laksdjf',
                 books
             });
         })
