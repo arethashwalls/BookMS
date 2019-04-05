@@ -9,7 +9,7 @@ module.exports = {
             const { authors, siteTitle } = response.data;
             res.render('admin/viewers/viewAuthors', {
                 username: 'Arthur',
-                num: 3, 
+                num: 3,
                 siteTitle,
                 authors
             });
