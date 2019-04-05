@@ -1,12 +1,10 @@
 const axios = require('axios'),
-      { authorfy } = require('../../../utils/formaters');
+      { formaters, setUrl } = require('../../../utils/'),
+      { authorfy } = formaters;
 
 module.exports = {
     getViewBooks: (req, res) => {
-        console.log(process.env.NODE_ENV)
-        const url = process.env.NODE_ENV === 'development'
-        ? 'http://localhost:3000/api/books/all'
-        : '/api/books/all'
+        const url = setUrl('api/books/all');
         axios.get(url)
         .then(response => {
             const { data: books } = response;
