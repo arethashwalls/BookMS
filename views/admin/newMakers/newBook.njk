@@ -1,0 +1,42 @@
+<h1 class="title">Create a new author.</h1>
+
+<form>
+    <div class="field">
+        <label class="label">Title</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Singles and Singularities">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Author</label>
+        <div class="control">
+            <div class="select">
+                <select>
+                    <option>Select an author</option>
+                    {% for author in authors %}
+                        <option value="{{author._id}}">{{author.name}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Cover Image</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="fakeimagehostingwebsite.com/images/singlesandsingularitycover.png">
+        </div>
+        <p class="help">Enter a link to your cover image.</p>
+    </div>
+    <div class="field">
+        <label class="label">Synopsis</label>
+        <div class="control">
+            <textarea class="textarea" placeholder="Stella was a naive young T Tauri from GN-z11. The Omni Corporation was just looking for a cheap source of energy..."></textarea>
+        </div>
+        <p class="help">A short summary of your book.</p>
+    </div>
+    <div class="field">
+        <div class="control is-clearfix">
+            <button class="button is-pulled-right is-primary">Submit</button>
+        </div>
+    </div>
+</form>

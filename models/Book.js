@@ -10,11 +10,12 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    cover: String,
     authors: [{
         type: Schema.Types.ObjectId,
         ref: "Author"
     }],
+    cover: String,
+    synopsis: String,
     tags: [String],
     chapters: [{
         type: Schema.Types.ObjectId,
