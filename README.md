@@ -4,5 +4,5 @@
 
 * set book to home route
 * figure out how to exit seeding when complete
-* move auth to cookies and add cookie-check to routing
+* X move auth to cookies and add cookie-check to routing X
 * figure out how to serve securely

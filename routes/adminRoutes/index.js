@@ -7,6 +7,6 @@ const express = require('express'),
 
 router.use('/', authRoutes);
 router.use('/edit', jwtVerify, editRoutes);
-router.use('/view', viewRoutes)
+router.use('/view', jwtVerify, viewRoutes)
 
 module.exports = router;

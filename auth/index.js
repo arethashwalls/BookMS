@@ -44,7 +44,11 @@ passport.use('login', new LocalStrategy({
 passport.use(new JWTStrategy({
     //Get secret key from .env:
     secretOrKey: process.env.AUTH_SECRET,
-    jwtFromRequest: ExtractJwt.fromUrlQueryParameter('secret_token')
+    jwtFromRequest: ExtractJwt.fromExtractors([req => {
+        let token = null;
+        if(req && req.cookies) token = req.cookies['access_token'];
+        return token;
+    }])
 }, (token, next) => {
     try {
         return next(null, token.user)
