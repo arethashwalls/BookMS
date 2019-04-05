@@ -4,13 +4,21 @@
 
 {% block deskBody %}
     {% for author in authors %}
-        <article class="box">
-            <div class="level">
+        <div class="box">
+            <article class="level">
                 <h5 class="title">{{author.name}}</h5>
                 {% if author.bio %}
                     <p>{{author.bio}}</p>
                 {% endif %}
-            </div>
-        </article>
+            </article>
+        </div>
     {% endfor %}
+    <div class="box has-background-dark">
+        <article class="level">
+            <h5 class="title is-inline-flex has-text-white">Create a new author</h5>
+            <a class="icon">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </article>
+    </div>
 {% endblock %}
