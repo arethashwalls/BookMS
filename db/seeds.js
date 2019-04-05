@@ -39,7 +39,7 @@ db.once('open', function () {
     const scandalInBohemia = new Book({
         title: 'A Scandal in Bohemia',
         url_title: 'a-scandal-in-bohemia',
-        cover: 'images/bohemia-cover.jpg',
+        cover: '/images/bohemia-cover.jpg',
         authors: [doyle],
         chapters: [chapter1, chapter2],
     });
