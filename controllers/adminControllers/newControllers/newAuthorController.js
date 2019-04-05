@@ -1,4 +1,4 @@
-const { User } = require('../../../models');
+const { User, Author } = require('../../../models');
 
 module.exports = {
     getNewAuthor: (req, res) => {
@@ -15,5 +15,9 @@ module.exports = {
             })
         })
         .catch(err => console.log(err));
+    },
+    postNewAuthor: (req, res) => {
+        
+        res.send(req.body)
     }
 }

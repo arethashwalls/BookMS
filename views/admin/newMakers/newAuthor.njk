@@ -1,17 +1,17 @@
 <h1 class="title">Create a new author.</h1>
 
-<form>
+<form action="/admin/new/author" method="post">
     <div class="field">
         <label class="label">Name</label>
         <div class="control">
-            <input class="input" type="text" placeholder="First M. Last">
+            <input class="input" type="text" name="name" placeholder="First M. Last">
         </div>
         <p class="help">The author's full name as you'd like it to be displayed.</p>
     </div>
     <div class="field">
         <label class="label">Bio</label>
         <div class="control">
-            <textarea class="textarea" placeholder="Born and raised on a desolate Martian colony in 2967, First Last always dreamed of greater things..."></textarea>
+            <textarea class="textarea" name="bio" placeholder="Born and raised on a desolate Martian colony in 2967, First Last always dreamed of greater things..."></textarea>
         </div>
     </div>
     <p class="help">A short description of the author.</p>

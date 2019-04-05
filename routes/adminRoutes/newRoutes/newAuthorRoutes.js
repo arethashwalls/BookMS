@@ -5,5 +5,6 @@ const express = require('express'),
 
 router.route('/')
     .get(newAuthorController.getNewAuthor)
+    .post(newAuthorController.postNewAuthor)
 
 module.exports = router;
