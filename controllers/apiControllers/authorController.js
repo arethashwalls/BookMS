@@ -1,9 +1,10 @@
-const { Author } = require('../../models');
+const { User } = require('../../models');
 
 module.exports = {
     getAllAuthors: (req, res) => {
-        Author.find({})
-        .then(books => res.json(books))
+        User.findOne({})
+        .populate('authors')
+        .then(authors => res.json(authors))
         .catch(err => console.log(err));
     }
 }

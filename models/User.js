@@ -19,7 +19,15 @@ const userSchema = new Schema({
     siteTitle: {
         type: String,
         required: true
-    }
+    },
+    books: [{
+        type: Schema.Types.ObjectId,
+        ref: "Book"
+    }],
+    authors: [{
+        type: Schema.Types.ObjectId,
+        ref: "Author"
+    }]
 });
 
 userSchema.pre('save', function(next) {

@@ -6,12 +6,11 @@ module.exports = {
         const url = setUrl('api/authors/all');
         axios.get(url)
         .then(response => {
-            const { data: authors } = response;
+            const { authors, siteTitle } = response.data;
             res.render('admin/viewers/viewAuthors', {
                 username: 'Arthur',
                 num: 3, 
-                siteTitle: "A:LJFHWEJHF",
-                bookTitle: ';laksdjf',
+                siteTitle,
                 authors
             });
         })
