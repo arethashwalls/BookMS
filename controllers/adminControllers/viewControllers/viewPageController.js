@@ -10,7 +10,8 @@ module.exports = {
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
                 num: 3, 
-                title: 'alsdhjflsj',
+                siteTitle: 'alsdhjflsj',
+                bookTitle: 'blah',
                 books
             });
         })
