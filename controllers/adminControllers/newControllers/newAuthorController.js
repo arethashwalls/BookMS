@@ -17,7 +17,11 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewAuthor: (req, res) => {
-        
-        res.send(req.body)
+        Author.create(req.body)
+        .then(newAuthor => {
+            console.log('\nAuthor created: ' + newAuthor.name + '\n');
+            res.redirect('../view/authors');
+        })
+        .catch(err => console.log(err));
     }
 }
