@@ -9,10 +9,6 @@ const pageSchema = new Schema({
     p_num: {
         type: Number
     },
-    p_authors: [{
-        type: Schema.Types.ObjectId,
-        ref: "Author"
-    }],
     tags: [String],
     p_content: String
 });

@@ -27,6 +27,10 @@ const userSchema = new Schema({
     authors: [{
         type: Schema.Types.ObjectId,
         ref: "Author"
+    }],
+    stdalone_pages: [{
+        type: Schema.Types.ObjectId,
+        ref: "Page"
     }]
 });
 
