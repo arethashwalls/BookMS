@@ -7,6 +7,7 @@ module.exports = {
             const siteTitle = response.data;
             res.render('admin/viewers/viewAuthors', {
                 username: 'Areeeeth',
+                inAdmin: true,
                 num: 9,
                 siteTitle,
                 isNew: true,

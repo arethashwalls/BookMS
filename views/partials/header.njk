@@ -1,7 +1,7 @@
 <nav class="navbar is-primary is-fixed-top" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a class="navbar-item" href="/">
-            <h4 class="title">{{siteTitle}}</h4> 
+            <h4 class="title">{{siteTitle}}</h4>
             {% if bookTitle %}
                 <span class="pipe">&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 <h4 class="title">{{bookTitle}}</h4>
@@ -13,24 +13,40 @@
             <span aria-hidden="true"></span>
         </a>
     </div>
-    <div id="headerNav" class="navbar-menu">
-        <div class="navbar-end">
-            <a class="navbar-item">
-                First
-            </a>
-            <a class="navbar-item">
-                Latest
-            </a>
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">
-                    About
+    {% if bookTitle %}
+        <div id="headerNav" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item">
+                    First
                 </a>
-                <div class="navbar-dropdown is-right">
-                    <a class="navbar-item">
-                        About the Author
+                <a class="navbar-item">
+                    Latest
+                </a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        About
+                    </a>
+                    <div class="navbar-dropdown is-right">
+                        <a class="navbar-item">
+                            About the Author
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if inAdmin %}
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-light">
+                        My Desk
+                    </a>
+                    <a class="button is-light">
+                        Log Out
                     </a>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 </nav>

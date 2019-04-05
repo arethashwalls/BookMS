@@ -1,5 +1,5 @@
-const { User } = require('../../../models');
-const { truncate } = require('../../../utils').formaters;
+const { User } = require('../../../models'),
+     { truncate } = require('../../../utils').formaters;
 
 module.exports = {
     getViewPages: (req, res) => {
@@ -10,6 +10,7 @@ module.exports = {
             stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
+                inAdmin: true,
                 num: books.length,
                 siteTitle: site_title,
                 stdalonePages: stdalone_pages

@@ -9,6 +9,7 @@ module.exports = {
             res.render('admin/viewers/viewBooks', {
                 username: 'Areeeeth',
                 num: 9,
+                inAdmin: true,
                 siteTitle,
                 isNew: true,
                 isBook: true,
