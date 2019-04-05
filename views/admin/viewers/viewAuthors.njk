@@ -16,20 +16,9 @@
     <div class="box has-background-dark">
         <article class="level">
             <h5 class="title is-inline-flex has-text-white">Create a new author</h5>
-            <a class="icon">
+            <a href="/admin/new/author" class="icon">
                 <i class="fas fa-plus-circle"></i>
             </a>
         </article>
-    </div>
-    <div class="modal{% if hasForm %} is-active{% endif %}">
-        <div class="modal-background"></div>
-        <div class="modal-content box">
-            {% if isEditing %}
-                {% include "../editors/editAuthors.njk" %}
-            {% elif isNew %}
-                {% include "../newMakers/newAuthor.njk" %}
-            {% endif %}
-        </div>
-        <button class="modal-close is-large" aria-label="close"></button>
     </div>
 {% endblock %}

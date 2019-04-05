@@ -23,5 +23,21 @@
             </div>
         </div>
     </div>
-
+    <div class="modal{% if hasForm %} is-active{% endif %}">
+        <div class="modal-background"></div>
+        <div class="modal-content box">
+            {% if isEditing %}
+                {% include "../editors/editAuthors.njk" %}
+            {% elif isNew %}
+                {% if isAuthor %}
+                    {% include "admin/newMakers/newAuthor.njk" %}
+                {% elif isBook %}
+                    {% include "admin/newMakers/newBook.njk" %}
+                {% elif isPage %}
+                    {% include "admin/newMakers/newPage.njk" %}
+                {% endif %}
+            {% endif %}
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
 {% endblock %}
