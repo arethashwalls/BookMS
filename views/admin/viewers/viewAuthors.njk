@@ -21,10 +21,14 @@
             </a>
         </article>
     </div>
-    <div class="modal{% if isActive %} is-active{% endif %}">
+    <div class="modal{% if hasForm %} is-active{% endif %}">
         <div class="modal-background"></div>
-        <div class="modal-content">
-            {% include "../editors/editAuthors.njk" %}
+        <div class="modal-content box">
+            {% if isEditing %}
+                {% include "../editors/editAuthors.njk" %}
+            {% elif isNewMaking %}
+                {% include "../newMakers/newAuthor.njk" %}
+            {% endif %}
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
