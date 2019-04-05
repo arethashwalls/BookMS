@@ -1,13 +1,10 @@
-const { User, Book } = require('../../models');
+const { User } = require('../../models');
 
 module.exports = {
     getAllStdalonePages: (req, res) => {
         User.findOne({})
-        .populate('books')
-        .then(user => {
-           if(user.books.length > 0) user.books.forEach(book => book.populate('stdalone_pages'));
-           res.json(user);
-        })
-        .catch(err => console.log(err))
+        .populate('stdalone_pages')
+        .then(user => res.json(user))
+        .catch(err => console.log(err));
     }
 }

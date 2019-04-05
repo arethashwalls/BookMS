@@ -6,12 +6,12 @@ module.exports = {
         const url = setUrl('api/pages/all');
         axios.get(url)
         .then(response => {
-            const { books, siteTitle } = response.data;
+            const { stdalone_pages, site_title } = response.data;
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
                 num: 3, 
-                siteTitle,
-                books
+                siteTitle: site_title,
+                stdalonePages: stdalone_pages
             });
         })
         .catch(err => console.log(err));

@@ -4,30 +4,27 @@
 
 {% block deskBody %}
     <div class="tile is-ancestor">
-        {% for book in books %}
-            <div class="tile is-12 is-parent">
+        <div class="tile is-12 is-parent">
+            {% for page in stdalonePages %}
                 <div class="box">
-                    <h4 class="title">{{book.title}}</h4>
-                    {% for page in book.stdalone_pages %}
-                        <article class="tile is-child is-4">
-                            <div class="box">
-                                <h5 class="title">{{page.p_title}}</h5>
-                                <p class="subtitle">{{page.p_authors}}</p>
-                                <hr/>
-                                <p>{{page.p_content}}</p>
-                            </div>
-                        </article>
-                    {% endfor %}
+                    <article class="tile is-child is-4">
+                        <div class="box">
+                            <h5 class="title">{{page.p_title}}</h5>
+                            <p class="subtitle">{{page.p_authors}}</p>
+                            <hr/>
+                            <p>{{page.p_content}}</p>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        {% endfor %}
-        <div class="tile is-parent">
+            {% endfor %}
             <article class="tile is-child is-4">
                 <div class="box has-background-dark">
                     <a href="/admin/new/page">
                         <h5 class="title is-inline-flex has-text-white">
                             Create a new standalone page
-                            <span class="icon"><i class="fas fa-plus-circle"></i></span>
+                            <span class="icon">
+                                <i class="fas fa-plus-circle"></i>
+                            </span>
                         </h5>
                     </a>
                 </div>
