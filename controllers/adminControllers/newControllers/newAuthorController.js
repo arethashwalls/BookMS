@@ -20,7 +20,12 @@ module.exports = {
         Author.create(req.body)
         .then(newAuthor => {
             console.log('\nAuthor created: ' + newAuthor.name + '\n');
-            res.redirect('../view/authors');
+            User.findOneAndUpdate({}, {
+                $push: {authors: newAuthor._id}
+            })
+            .then(user => {
+                res.redirect('../view/authors');
+            })
         })
         .catch(err => console.log(err));
     }
