@@ -2,7 +2,7 @@ const axios = require('axios'),
       { setUrl } = require('../../../utils/');
 
 module.exports = {
-    getNewBook: (req, res) => {
+    getNewPage: (req, res) => {
         const url = setUrl('api/user/title');
         axios.get(url)
         .then(response => {

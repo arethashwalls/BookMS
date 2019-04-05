@@ -4,8 +4,8 @@ const express = require('express'),
       newAuthorRoutes = require('./newAuthorRoutes'),
       newPageRoutes = require('./newPageRoutes');
 
-// router.use('/books', newBookRoutes);
+router.use('/books', newBookRoutes);
 router.use('/author', newAuthorRoutes);
-// router.use('/pages', newPageRoutes);
+router.use('/pages', newPageRoutes);
 
 module.exports = router;
