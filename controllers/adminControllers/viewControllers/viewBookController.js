@@ -1,5 +1,4 @@
 const axios = require('axios'),
-      path = require('path'),
       { authorfy } = require('../../../utils/formaters');
 
 module.exports = {
