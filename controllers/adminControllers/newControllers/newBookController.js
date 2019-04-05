@@ -12,6 +12,7 @@ module.exports = {
                 num: 9,
                 siteTitle,
                 isNew: true,
+                isBook: true,
                 hasForm: true
             })
         })

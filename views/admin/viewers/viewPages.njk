@@ -3,9 +3,8 @@
 {% set deskPageName = "Your Standalone Pages" %}
 
 {% block deskBody %}
-
-    {% for book in books %}
-        <div class="tile is-ancestor">
+    <div class="tile is-ancestor">
+        {% for book in books %}
             <div class="tile is-12 is-parent">
                 <div class="box">
                     <h4 class="title">{{book.title}}</h4>
@@ -21,15 +20,18 @@
                     {% endfor %}
                 </div>
             </div>
+        {% endfor %}
+        <div class="tile is-parent">
+            <article class="tile is-child is-4">
+                <div class="box has-background-dark">
+                    <a href="/admin/new/page">
+                        <h5 class="title is-inline-flex has-text-white">
+                            Create a new standalone page
+                            <span class="icon"><i class="fas fa-plus-circle"></i></span>
+                        </h5>
+                    </a>
+                </div>
+            </article>
         </div>
-    {% endfor %}
-    <article class="tile is-child is-4">
-        <div class="box has-background-dark">
-            <h5 class="title is-inline-flex has-text-white">Create a new standalone page</h5>
-            <a href="/admin/new/page" class="icon">
-                <i class="fas fa-plus-circle"></i>
-            </a>
-        </div>
-    </article>
-
+    </div>
 {% endblock %}
