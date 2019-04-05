@@ -7,7 +7,7 @@ module.exports = {
         User.findOne({})
         .populate('books')
         .then(response => {
-            const { books, siteTitle } = response.data;
+            const { books, siteTitle } = response;
             books.forEach(book => {
                 book.authors = authorfy(book.authors.map(author => author.name));
             });

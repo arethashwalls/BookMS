@@ -5,7 +5,7 @@ module.exports = {
         User.findOne({})
         .populate('authors')
         .then(response => {
-            const { authors, siteTitle } = response.data;
+            const { authors, siteTitle } = response;
             res.render('admin/viewers/viewAuthors', {
                 username: 'Arthur',
                 num: 3,

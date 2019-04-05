@@ -5,7 +5,7 @@ module.exports = {
         User.findOne({})
         .populate('stdalone_pages')
         .then(response => {
-            const { stdalone_pages, site_title } = response.data;
+            const { stdalone_pages, site_title } = response;
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
                 num: 3, 
