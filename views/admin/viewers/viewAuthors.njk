@@ -1,0 +1,16 @@
+{% extends "layouts/desk.njk" %}
+
+{% set deskPageName = "Your Authors" %}
+
+{% block deskBody %}
+    {% for author in authors %}
+        <article class="box">
+            <div class="level">
+                <h5 class="title">{{author.name}}</h5>
+                {% if author.description %}
+                    <p>{{author.description}}</p>
+                {% endif %}
+            </div>
+        </article>
+    {% endfor %}
+{% endblock %}
