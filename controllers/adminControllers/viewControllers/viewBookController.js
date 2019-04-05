@@ -1,9 +1,14 @@
-const axios = require('axios');
-const { authorfy } = require('../../../utils/formaters');
+const axios = require('axios'),
+      path = require('path'),
+      { authorfy } = require('../../../utils/formaters');
 
 module.exports = {
     getViewBooks: (req, res) => {
-        axios.get('/api/books/all')
+        console.log(process.env.NODE_ENV)
+        const url = process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000/api/books/all'
+        : '/api/books/all'
+        axios.get(url)
         .then(response => {
             const { data: books } = response;
             books.forEach(book => {
