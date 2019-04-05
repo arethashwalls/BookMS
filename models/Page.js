@@ -7,9 +7,12 @@ const pageSchema = new Schema({
         required: true
     },
     p_num: {
-        type: Number,
-        required: true
+        type: Number
     },
+    p_authors: [{
+        type: Schema.Types.ObjectId,
+        ref: "Author"
+    }],
     tags: [String],
     p_content: String
 });
