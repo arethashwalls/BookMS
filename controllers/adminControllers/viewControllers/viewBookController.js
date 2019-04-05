@@ -7,16 +7,15 @@ module.exports = {
         const url = setUrl('api/books/all');
         axios.get(url)
         .then(response => {
-            const { data: books } = response;
+            console.log(response)
+            const { books, siteTitle } = response.data;
             books.forEach(book => {
                 book.authors = authorfy(book.authors.map(author => author.name));
             });
             res.render('admin/viewers/viewBooks', {
                 username: 'Arthur',
-                num: 3, 
-                title: 'alsdhjflsj',
-                siteTitle: "A:LJFHWEJHF",
-                bookTitle: ';laksdjf',
+                num: 3,
+                siteTitle,
                 books
             });
         })

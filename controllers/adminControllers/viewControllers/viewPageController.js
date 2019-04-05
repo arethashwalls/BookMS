@@ -6,6 +6,7 @@ module.exports = {
         const url = setUrl('api/pages/all');
         axios.get(url)
         .then(response => {
+            console.log(response)
             const { data: books } = response;
             res.render('admin/viewers/viewPages', {
                 username: 'Arthur',
