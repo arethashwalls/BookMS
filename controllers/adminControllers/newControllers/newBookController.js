@@ -4,13 +4,16 @@ const { urlify } = require('../../../utils').formaters;
 module.exports = {
     getNewBook: (req, res) => {
         User.findOne({}, 'siteTitle')
+        .populate('authors', ['name', '_id'])
         .then(response => {
-            const siteTitle = response.data;
+            console.log(response)
+            const { siteTitle, authors } = response;
             res.render('admin/viewers/viewBooks', {
                 username: 'Areeeeth',
                 num: 9,
                 inAdmin: true,
                 siteTitle,
+                authors,
                 isNew: true,
                 isBook: true,
                 hasForm: true
@@ -19,8 +22,8 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewBook: (req, res) => {
-        const { title, cover, synopsis } = req.body;
-        const authors = [];
+        console.log(req.body)
+        const { title, authors, cover, synopsis } = req.body;
         const url_title = urlify(title);
         Book.create({title, url_title, authors, cover, synopsis})
         .then(newBook => {

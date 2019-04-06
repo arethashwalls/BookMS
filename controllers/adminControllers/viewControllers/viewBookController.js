@@ -5,12 +5,14 @@ const { User } = require('../../../models'),
 module.exports = {
     getViewBooks: (req, res) => {
         User.findOne({})
-        .populate('books')
+        .populate({
+            path: 'books',
+            populate: {
+                path: 'authors'
+            }
+        })
         .then(response => {
             const { books, siteTitle } = response;
-            books.forEach(book => {
-                book.authors = authorfy(book.authors.map(author => author.name));
-            });
             res.render('admin/viewers/viewBooks', {
                 username: 'Arthur',
                 inAdmin: true,

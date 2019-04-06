@@ -7,19 +7,19 @@
             <input class="input" type="text" name="title" placeholder="Singles and Singularities">
         </div>
     </div>
-    <div class="field">
-        <label class="label">Authors</label>
-        <div class="control">
-            <div class="select">
-                <select name="authors">
-                    <option value=[]>Select an author</option>
-                    {% for author in authors %}
-                        <option value="{{author._id}}">{{author.name}}</option>
-                    {% endfor %}
-                </select>
+    {% if authors %}
+        <div class="field">
+            <label class="label">Authors</label>
+            <div class="control">
+                {% for author in authors %}
+                    <label class="checkbox">
+                        <input type="checkbox" value="{{author._id}}" name="authors"> {{author.name}}
+                    </label>
+                    <br />
+                {% endfor %}
             </div>
         </div>
-    </div>
+    {% endif %}
     <div class="field">
         <label class="label">Cover Image</label>
         <div class="control">
