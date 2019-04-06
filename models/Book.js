@@ -1,5 +1,6 @@
 const mongoose = require('mongoose'),
-      {Schema} = mongoose;
+      { Schema } = mongoose,
+      { authorfy } = require('../utils').formaters;
 
 const bookSchema = new Schema({
     title: {
@@ -26,5 +27,14 @@ const bookSchema = new Schema({
         ref: "Page"
     }],
 });
+
+bookSchema.pre('populate', function(next) {
+    this.populate('authors');
+    next();
+})
+
+bookSchema.virtual('author_string').get(function() {
+    return authorfy(this.authors.map(author => author.name));
+})
 
 module.exports = mongoose.model('Book', bookSchema);

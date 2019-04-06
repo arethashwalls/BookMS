@@ -6,7 +6,6 @@ module.exports = {
         User.findOne({}, 'siteTitle')
         .populate('authors', ['name', '_id'])
         .then(response => {
-            console.log(response)
             const { siteTitle, authors } = response;
             res.render('admin/viewers/viewBooks', {
                 username: 'Areeeeth',
@@ -22,7 +21,6 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewBook: (req, res) => {
-        console.log(req.body)
         const { title, authors, cover, synopsis } = req.body;
         const url_title = urlify(title);
         Book.create({title, url_title, authors, cover, synopsis})
