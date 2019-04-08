@@ -3,12 +3,10 @@ const { Author } = require('../../../models');
 module.exports = {
     deleteAuthor: (req, res) =>{
         const { deleteId } = req.body;
-        console.log(req)
         Author.findByIdAndRemove(deleteId)
         .then(result => {
-            console.log(result);
-            res.sendStatus(200)
+            res.sendStatus(200).send(`Author ${result._id} successfully deleted.`)
         })
-        .catch(err => res.sendStatus(404))
+        .catch(err => res.sendStatus(404)).send('Author not found.')
     }
 }
