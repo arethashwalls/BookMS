@@ -12,7 +12,7 @@ yesDelete .addEventListener('click', function() {
     const deleteId = this.dataset.deleteid;
     axios.delete('/admin/delete/author', {data: {deleteId}})
     .then(result => {
-        console.log(result)
+        if(result.status === 200) window.location.reload();
     })
     .catch(err => console.log(err));
 })
