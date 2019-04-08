@@ -1,5 +1,8 @@
+const { Book } = require('../../../models');
+
 module.exports = {
-    getBookEdit: (req, res) => {
-        res.render('admin/editors/editBooks', {})
+    updateBook: (req, res) => {
+        const { updateId } = req.body;
+        res.send(updateId);
     }
 }
