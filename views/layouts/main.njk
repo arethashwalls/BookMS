@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/style/bulma.css" />
     {% for style in styles %}
       <link rel="stylesheet" type="text/css" media="screen" href="/style/{{style}}.css" />
-    {% endfor %}
+    {% endfor %}    
   </head>
   <body class="has-navbar-fixed-top">
     {% if hasHeader %}
@@ -25,5 +25,6 @@
     <section class="section">
         {% block body %}{% endblock %}
     </section>
+    <script type="text/javascript" src="/js/{{script}}.js"></script>
   </body>
 </html>
