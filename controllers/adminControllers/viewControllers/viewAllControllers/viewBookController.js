@@ -1,5 +1,5 @@
-const { User } = require('../../../models'),
-      { formaters } = require('../../../utils/'),
+const { User } = require('../../../../models'),
+      { formaters } = require('../../../../utils'),
       { authorfy } = formaters;
 
 module.exports = {
@@ -13,7 +13,7 @@ module.exports = {
         })
         .then(response => {
             const { books, siteTitle } = response;
-            res.render('admin/viewers/viewBooks', {
+            res.render('admin/viewers/viewAll/viewBooks', {
                 username: 'Arthur',
                 inAdmin: true,
                 num: books.length,

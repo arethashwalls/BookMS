@@ -1,11 +1,7 @@
 const express = require('express'),
       router = express.Router(),
-      viewBookRoutes = require('./viewBookRoutes'),
-      viewAuthorRoutes = require('./viewAuthorRoutes'),
-      viewPageRoutes = require('./viewPageRoutes');
+      viewAllRoutes = require('./viewAllRoutes');
 
-router.use('/books', viewBookRoutes);
-router.use('/authors', viewAuthorRoutes);
-router.use('/pages', viewPageRoutes);
+router.use('/all', viewAllRoutes);
 
 module.exports = router;
