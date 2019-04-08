@@ -1,7 +1,8 @@
 module.exports = {
     authControllers: require('./authControllers'),
-    editControllers: require('./editControllers'),
     newControllers: require('./newControllers'),
     viewControllers: require('./viewControllers'),
+    editControllers: require('./editControllers'),
+    deleteControllers: require('./deleteControllers'),
     jwtVerify: require('./jwtVerify')
 }
