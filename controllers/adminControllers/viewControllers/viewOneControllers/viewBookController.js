@@ -7,6 +7,7 @@ module.exports = {
         Book.findOne({alias})
         .populate('authors')
         .then(book => {
+            console.log(book)
             const authorstring = authorfy( book.authors.map(author => author.name) );
             res.render('admin/viewers/viewOne/viewBook', {
                 username: 'aaah',

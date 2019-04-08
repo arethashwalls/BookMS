@@ -43,7 +43,7 @@
                 <ul>
                     {% for author in book.authors %}
                         <li>
-                            <a href="">{{author.name}}</a>
+                            <a href="/admin/view/author/{{author.alias}}">{{author.name}}</a>
                         </li>
                     {% endfor %}
                 </ul>
