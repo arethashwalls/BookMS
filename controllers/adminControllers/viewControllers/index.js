@@ -1,3 +1,4 @@
 module.exports = {
-    viewAllControllers: require('./viewAllControllers')
+    viewAllControllers: require('./viewAllControllers'),
+    viewOneControllers: require('./viewOneControllers')
 }
