@@ -3,8 +3,8 @@ const { Book } = require('../../../../models'),
 
 module.exports = {
     viewBook: (req, res) => {
-        const { url_title } = req.params;
-        Book.findOne({url_title})
+        const { alias } = req.params;
+        Book.findOne({alias})
         .populate('authors')
         .then(book => {
             const authorstring = authorfy( book.authors.map(author => author.name) );

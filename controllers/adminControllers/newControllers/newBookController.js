@@ -22,8 +22,8 @@ module.exports = {
     },
     postNewBook: (req, res) => {
         const { title, authors, cover, synopsis } = req.body;
-        const url_title = urlify(title);
-        Book.create({title, url_title, authors, cover, synopsis})
+        const alias = urlify(title);
+        Book.create({title, alias, authors, cover, synopsis})
         .then(newBook => {
             console.log('\nBook created: ' + newBook.title + '\n');
             User.findOneAndUpdate({}, {

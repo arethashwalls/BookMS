@@ -7,7 +7,7 @@ const bookSchema = new Schema({
         type: String,
         required: true
     },
-    url_title: {
+    alias: {
         type: String,
         required: true
     },
