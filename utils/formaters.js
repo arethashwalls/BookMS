@@ -1,6 +1,8 @@
 module.exports = {
     authorfy: authorArr => {
         switch(authorArr.length) {
+            case 0: 
+                return '';
             case 1:
                 return authorArr[0];
             case 2:
