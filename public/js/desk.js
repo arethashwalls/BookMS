@@ -6,7 +6,7 @@ const showDeleteWarning = document.getElementById('show-delete-warning'),
 if(showDeleteWarning) showDeleteWarning.addEventListener('click', () => {
     showDeleteWarning.setAttribute('disabled', true);
     deleteWarning.classList.remove('hidden');
-})
+});
 
 if(yesDelete) yesDelete.addEventListener('click', function() {
     const deleteId = this.dataset.deleteid;
@@ -15,4 +15,9 @@ if(yesDelete) yesDelete.addEventListener('click', function() {
         if(result.status === 200) window.location.reload();
     })
     .catch(err => console.log(err));
+});
+
+if(noDelete) noDelete.addEventListener('click', () => {
+    showDeleteWarning.removeAttribute('disabled');
+    deleteWarning.classList.add('hidden');
 })
