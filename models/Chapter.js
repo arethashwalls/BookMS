@@ -6,6 +6,11 @@ const chapterSchema = new Schema({
         type: String,
         required: true
     },
+    alias: {
+        type: String,
+        required: true,
+        unique: true
+    },
     ch_num: {
         type: Number,
         required: true

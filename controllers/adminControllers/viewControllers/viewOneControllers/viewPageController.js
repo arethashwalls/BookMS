@@ -2,8 +2,8 @@ const { Page } = require('../../../../models');
 
 module.exports = {
     viewPage: (req, res) => {
-        const { id } = req.params;
-        Page.findById(id)
+        const { alias } = req.params;
+        Page.findOne({alias})
         .then(page => {
             res.json(page)
         })

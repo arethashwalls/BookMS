@@ -6,6 +6,11 @@ const pageSchema = new Schema({
         type: String,
         required: true
     },
+    alias: {
+        type: String,
+        required: true,
+        unique: true
+    },
     p_num: {
         type: Number
     },

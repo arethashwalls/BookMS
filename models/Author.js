@@ -7,6 +7,11 @@ const authorSchema = new Schema({
         required: true,
         unique: true
     },
+    alias: {
+        type: String,
+        required: true,
+        unique: true
+    },
     bio: String
 });
 

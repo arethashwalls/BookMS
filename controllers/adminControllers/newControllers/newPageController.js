@@ -1,4 +1,5 @@
 const { User, Page } = require('../../../models');
+const { urlify } = require('../../../utils').formaters;
 
 module.exports = {
     getNewPage: (req, res) => {
@@ -18,7 +19,9 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewPage: (req, res) => {
-        Page.create(req.body)
+        const { p_title, p_num, p_content } = req.body;
+        const alias = urlify(p_title);
+        Page.create({p_title, alias, p_num, p_content})
         .then(newPage => {
             console.log('\nPage created: ' + newPage.p_title + '\n');
             User.findOneAndUpdate({}, {

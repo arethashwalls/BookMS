@@ -1,4 +1,5 @@
 const { User, Author } = require('../../../models');
+const { urlify } = require('../../../utils').formaters;
 
 module.exports = {
     getNewAuthor: (req, res) => {
@@ -18,7 +19,9 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewAuthor: (req, res) => {
-        Author.create(req.body)
+        const { name, bio } = req.body;
+        const alias = urlify(name);
+        Author.create({name, alias, bio})
         .then(newAuthor => {
             console.log('\nAuthor created: ' + newAuthor.name + '\n');
             User.findOneAndUpdate({}, {

@@ -2,8 +2,8 @@ const { Author } = require('../../../../models');
 
 module.exports = {
     viewAuthor: (req, res) => {
-        const { id } = req.params;
-        Author.findById(id)
+        const { alias } = req.params;
+        Author.findOne({alias})
         .then(author => {
             res.json(author)
         })
