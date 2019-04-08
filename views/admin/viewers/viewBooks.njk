@@ -1,6 +1,7 @@
 {% extends "layouts/desk.njk" %}
 
 {% set deskPageName = "Your Books" %}
+{% set whichPage = "book" %}
 
 {% block deskBody %}
     <div class="tile is-ancestor">
@@ -8,11 +9,14 @@
             {% for book in books %}
                 <article class="tile is-child is-4">
                     <div class="box">
+                        <button class="delete is-pulled-right" id="show-delete-warning"></button>   
                         <h5 class="title">{{book.title}}</h5>
                         <p class="subtitle">{{book.author_string}}</p>
                         {% if book.cover %}
                             <img src="{{book.cover}}"/>
                         {% endif %}
+                        {% set deleteId = book._id %}
+                        {% include "partials/deleteWarning.njk" %}
                     </div>
                 </article>
             {% endfor %}
