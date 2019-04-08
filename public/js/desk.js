@@ -10,5 +10,5 @@ showDeleteWarning.addEventListener('click', () => {
 
 yesDelete .addEventListener('click', function() {
     const deleteId = this.dataset.deleteid;
-    console.log(deleteId);
+    axios.delete('/admin/delete/author', {data: {deleteId}})
 })

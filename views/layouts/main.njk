@@ -14,7 +14,10 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/style/bulma.css" />
     {% for style in styles %}
       <link rel="stylesheet" type="text/css" media="screen" href="/style/{{style}}.css" />
-    {% endfor %}    
+    {% endfor %}
+    {% for cdn in cdns %}
+      <script src="{{cdn}}"></script>
+    {% endfor %}
   </head>
   <body class="has-navbar-fixed-top">
     {% if hasHeader %}

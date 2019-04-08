@@ -11,6 +11,6 @@ router.use('/', authRoutes);
 router.use('/new', jwtVerify, newRoutes);
 router.use('/view', jwtVerify, viewRoutes);
 router.use('/edit', jwtVerify, editRoutes);
-router.use('/delete', jwtVerify, deleteRoutes);
+router.use('/delete', deleteRoutes);
 
 module.exports = router;
