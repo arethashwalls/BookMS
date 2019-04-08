@@ -1,8 +1,8 @@
 <div class="notification is-warning is-clearfix hidden" id="delete-warning">
-    {{deleteWarningText}}
+    Are you sure you'd like to delete this {{whichPage}}?
     <br/>
     <div class="buttons is-pulled-right">
-        <button class="button is-danger" id="yes-delete" data-deleteid={{deleteId}}>Yes</button>
+        <button class="button is-danger" id="yes-delete" data-deleteid={{deleteId}} data-deletetarget={{whichPage}}>Yes</button>
         <button class="button is-primary" id="no-delete">No</button>
     </div>
 </div>
