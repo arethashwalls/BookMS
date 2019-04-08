@@ -1,6 +1,7 @@
 {% extends "layouts/desk.njk" %}
 
 {% set deskPageName = "Your Standalone Pages" %}
+{% set whichPage = "page" %}
 
 {% block deskBody %}
     <div class="tile is-ancestor">
@@ -8,10 +9,13 @@
             {% for page in stdalonePages %}
                 <article class="tile is-child is-4">
                     <div class="box">
+                        <button class="delete is-pulled-right" id="show-delete-warning"></button>
                         <h5 class="title">{{page.p_title}}</h5>
                         <p class="subtitle">{{page.p_authors}}</p>
                         <hr/>
                         <p>{{page.p_content}}</p>
+                        {% set deleteId = page._id %}
+                        {% include "partials/deleteWarning.njk" %}
                     </div>
                 </article>
             {% endfor %}
