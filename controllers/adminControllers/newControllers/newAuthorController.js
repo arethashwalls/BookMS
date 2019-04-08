@@ -25,7 +25,7 @@ module.exports = {
                 $push: {authors: newAuthor._id}
             })
             .then(user => {
-                res.redirect('../view/authors');
+                res.redirect('../view/all/authors');
             })
         })
         .catch(err => console.log(err));

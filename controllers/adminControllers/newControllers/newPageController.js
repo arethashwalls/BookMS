@@ -25,7 +25,7 @@ module.exports = {
                 $push: {stdalone_pages: newPage._id}
             })
             .then(user => {
-                res.redirect('../view/pages');
+                res.redirect('../view/all/pages');
             })
         })
         .catch(err => console.log(err));

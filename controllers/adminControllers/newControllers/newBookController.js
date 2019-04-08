@@ -30,7 +30,7 @@ module.exports = {
                 $push: {books: newBook._id}
             })
             .then(user => {
-                res.redirect('../view/books');
+                res.redirect('../view/all/books');
             })
         })
         .catch(err => console.log(err));

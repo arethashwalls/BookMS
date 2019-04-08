@@ -3,8 +3,8 @@
 {% set deskPageName = book.title %}
 
 {% block deskBody %}
-    <h3 class="title is-size-4 has-text-primary">{{book.title}}</h3>
-    <h4 class="title is-size-2">{{authorstring}}</h4>
+    <h3 class="title is-size-3 has-text-primary">{{book.title}}</h3>
+    <h4 class="subtitle is-size-5">{{authorstring}}</h4>
 
     <div class="box">
         <div class="tabs">
@@ -20,14 +20,26 @@
                 </li>
             </ul>
         </div>
-        <section class="section">
-            <div class="container">
-                <h5 class="title is-2">Authors:</h5>
+        <section class="columns">
+            <div class="column is-5">
+                <h5 class="title is-6">Title:</h5>
+                <p>"{{book.title}}"</p>
+                <hr />
+                <h5 class="title is-6">Alias:</h5>
+                <p>{{book.url_title}}</p>
+                <hr />
+                <h5 class="title is-6">Authors:</h5>
                 <ul>
                     {% for author in book.authors %}
-                        
+                        <li>
+                            <a href="">{{author.name}}</a>
+                        </li>
                     {% endfor %}
                 </ul>
+            </div>
+            <div class="column is-7">
+                <h5 class="title is-6">Synopsis:</h5>
+                <p>{{book.synopsis}}</p>
             </div>
         </section>
     </div>
