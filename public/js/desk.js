@@ -1,3 +1,7 @@
-document.getElementById('show-delete-warning').addEventListener('click', () => {
-    document.getElementById('delete-warning').classList.remove('hidden')
+const showDeleteWarning = document.getElementById('show-delete-warning'),
+      deleteWarning = document.getElementById('delete-warning');
+
+showDeleteWarning.addEventListener('click', () => {
+    showDeleteWarning.setAttribute('disabled', true);
+    deleteWarning.classList.remove('hidden');
 })

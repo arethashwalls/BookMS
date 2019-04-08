@@ -1,6 +1,7 @@
 {% extends "layouts/desk.njk" %}
 
 {% set deskPageName = "Your Authors" %}
+{% set deleteWarningText = "Are you sure you'd like to delete this author?" %}
 
 {% block deskBody %}
     <div class="tile is-ancestor">
@@ -11,14 +12,7 @@
                         <button class="delete is-pulled-right" id="show-delete-warning"></button>                        
                         <h5 class="title">{{author.name}}</h5>
                         <p>{{author.bio}}</p>
-                        <div class="notification is-warning is-clearfix hidden" id="delete-warning">
-                            Are you sure you'd like to delete this author?
-                            <br />
-                            <div class="buttons is-pulled-right">
-                                <button class="button is-danger">Yes</button>
-                                <button class="button is-primary">No</button>
-                            </div>
-                        </div>
+                        {% include "partials/deleteWarning.njk" %}
                     </div>
                 </article>
             {% endfor %}
