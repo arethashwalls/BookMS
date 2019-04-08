@@ -12,6 +12,7 @@
                         <button class="delete is-pulled-right" id="show-delete-warning"></button>                        
                         <h5 class="title">{{author.name}}</h5>
                         <p>{{author.bio}}</p>
+                        {% set deleteId = author._id %}
                         {% include "partials/deleteWarning.njk" %}
                     </div>
                 </article>
