@@ -1,9 +1,9 @@
 {% extends "layouts/desk.njk" %}
 
-{% set deskPageName = "Your Standalone Pages" %}
 {% set whichPage = "page" %}
 
 {% block deskBody %}
+    <h3 class="title is-size-4 has-text-primary">Your Standalone Pages</h3>
     <div class="tile is-ancestor">
         <div class="tile is-12 is-parent">
             {% for page in stdalonePages %}
