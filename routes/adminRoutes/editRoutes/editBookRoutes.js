@@ -4,7 +4,7 @@ const express = require('express'),
       { editBookController } = require('../../../controllers').adminControllers.editControllers;
 
 //Routes:
-router.route('/')
-    .get(editBookController.getBookEdit)
+router.route('/:alias')
+    .put(editBookController.updateBook)
 
 module.exports = router;

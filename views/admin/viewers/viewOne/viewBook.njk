@@ -33,14 +33,26 @@
         </div>
         <section class="columns">
             <div class="column is-5">
-                <h5 class="title is-6">Title:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i></h5>
-                <p>"{{book.title}}"</p>
+                <h5 class="title is-6">Title:&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a id="toggle-edit-book-title"><i class="fas fa-pen-alt"></i></a>
+                </h5>
+                <p id="show-book-title">"{{book.title}}"</p>
+                <form class="hidden" id="edit-book-title" data-alias="{{book.alias}}">
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            <input class="input" type="text" placeholder="New book title." name="title" id="new-book-title">
+                        </div>
+                        <div class="control">
+                            <button class="button is-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </form>
                 <hr />
-                <h5 class="title is-6">Alias:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i></h5>
-                <p>{{book.alias}}</p>
+                <h5 class="title is-6">Alias:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt" id="edit-book-alias"></i></h5>
+                <p id="show-book-alias">{{book.alias}}</p>
                 <hr />
-                <h5 class="title is-6">Authors:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i></h5>
-                <ul>
+                <h5 class="title is-6">Authors:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt" id="edit-book-authors"></i></h5>
+                <ul id="show-book-authors">
                     {% for author in book.authors %}
                         <li>
                             <a href="/admin/view/author/{{author.alias}}">{{author.name}}</a>
