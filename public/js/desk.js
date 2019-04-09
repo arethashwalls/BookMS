@@ -42,4 +42,4 @@ if(editBookTitle) editBookTitle.addEventListener('submit', e => {
         if(result.status === 200) window.location.reload();
     })
     .catch(err => console.log(err));
-})
+});
