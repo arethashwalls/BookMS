@@ -1,13 +1,13 @@
 {% extends "layouts/viewBookBase.njk" %}
 
-{% set activeTab = "chapters" %}
+{% set activeTab = "pages" %}
 
 {% block viewBookContent %}
     <ol>
-        {% for chapter in chapters%}
+        {% for page in stdalone_pages%}
             <li>
                 <h5 class="title is-6">
-                    <a>{{chapter.ch_title}}</a>
+                    <a>{{page.p_title}}</a>
                 </h5>
             </li>
         {% endfor %}
@@ -16,7 +16,7 @@
         <button class="button is-dark">
             <span class="has-text-white">
                 <i class="fas fa-plus-circle"></i>
-            </span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new chapter.
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new standalone page.
         </button>
     </a>
 {% endblock %}
