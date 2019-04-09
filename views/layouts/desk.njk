@@ -27,9 +27,7 @@
     <div class="modal{% if hasForm %} is-active{% endif %}">
         <div class="modal-background"></div>
         <div class="modal-content box">
-            {% if isEditing %}
-                {% include "../editors/editAuthors.njk" %}
-            {% elif isNew %}
+            {% if isNew %}
                 {% if isAuthor %}
                     {% include "admin/newMakers/newAuthor.njk" %}
                 </div>
@@ -44,6 +42,11 @@
             {% elif isPage %}
                 {% include "admin/newMakers/newPage.njk" %}
                 <a href="/admin/view/all/pages">
+                    <button class="modal-close is-large" aria-label="close"></button>
+                </a>
+            {% elif isBookChapter %}
+                {% include "admin/newMakers/newBookChapter.njk" %}
+                <a href="/admin/view/{{book.alias}}/chapters">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% else %}
