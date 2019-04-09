@@ -2,6 +2,7 @@ const express = require('express'),
       router = express.Router(),
       { viewAuthorController } = require('../../../../controllers').adminControllers.viewControllers.viewOneControllers;
 
-router.use('/:alias', viewAuthorController.viewAuthor);
+router.route('/:alias')
+      .get(viewAuthorController.viewAuthor);
 
 module.exports = router;
