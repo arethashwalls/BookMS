@@ -14,7 +14,8 @@
         <div class="column">
             <div class="container">
                 <div class="container has-text-centered">
-                    <h1 class="title">Welcome to your desk, {{username}}.</h1>
+                    <h1 class="title">Welcome to your desk,
+                        {{username}}.</h1>
                 </div>
                 <hr/>
                 <section class="section desk-body">
@@ -32,26 +33,25 @@
                 {% if isAuthor %}
                     {% include "admin/newMakers/newAuthor.njk" %}
                 </div>
-                <a href="/admin/view/authors">
+                <a href="/admin/view/all/authors">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isBook %}
                 {% include "admin/newMakers/newBook.njk" %}
-                <a href="/admin/view/books">
+                <a href="/admin/view/all/books">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isPage %}
                 {% include "admin/newMakers/newPage.njk" %}
-                <a href="/admin/view/pages">
+                <a href="/admin/view/all/pages">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% else %}
-                </div>
-                <a href="/admin/view/books">
-                    <button class="modal-close is-large" aria-label="close"></button>
-                </a>
+            </div>
+            <a href="/admin/view/all/books">
+                <button class="modal-close is-large" aria-label="close"></button>
+            </a>
         {% endif %}
     {% endif %}
-
 </div>
 {% endblock %}

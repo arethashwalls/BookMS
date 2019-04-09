@@ -1,11 +1,20 @@
 {% extends "layouts/viewBookBase.njk" %}
 
+{% set activeTab = "chapters" %}
+
 {% block viewBookContent %}
     <ol>
         {% for chapter in chapters%}
             <li>
-                <h5 class="title is-6"><a>{{chapter.ch_title}}</a></h5>
+                <h5 class="title is-6">
+                    <a>{{chapter.ch_title}}</a>
+                </h5>
             </li>
         {% endfor %}
+        <a href="">
+            <button class="button is-dark">
+                <span class="has-text-white"><i class="fas fa-plus-circle"></i></span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new chapter.
+            </button>
+        </a>
     </ol>
 {% endblock %}
