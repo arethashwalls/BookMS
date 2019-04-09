@@ -1,0 +1,37 @@
+{% extends "layouts/desk.njk" %}
+
+{% set deskPageName = book.title %}
+
+{% block deskBody %}
+    <div class="level">
+        <div class="level-left">
+            <div class="level-item">
+                <h3 class="title is-size-3 has-text-primary">{{book.title}}</h3>
+            </div>
+        </div>
+        <div class="level-right">
+            <div class="level-item">
+                <a href="/admin/view/all/books"><button class="button is-primary">
+                    <i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;Back to all books.
+                </button></a>
+            </div>
+        </div>
+    </div>
+    <div class="box">
+        <div class="tabs">
+            <ul>
+                <li class="is-active">
+                    <a>About</a>
+                </li>
+                <li>
+                    <a>Chapters</a>
+                </li>
+                <li>
+                    <a>Standalone Pages</a>
+                </li>
+            </ul>
+        </div>
+        {% block viewBookContent %}
+        {% endblock %}
+    </div>
+{% endblock %}
