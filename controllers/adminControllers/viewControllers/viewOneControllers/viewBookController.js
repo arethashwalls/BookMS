@@ -14,7 +14,7 @@ module.exports = {
                 inAdmin: true,
                 authorstring,
                 book
-            })
+            });
         })
         .catch(err => console.log(err));
     }

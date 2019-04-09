@@ -1,19 +1,20 @@
 {% extends "layouts/desk.njk" %}
 
-{% set deskPageName = author.name %}
+{% set deskPageName = page.p_title %}
 
 {% block deskBody %}
     <div class="level">
         <div class="level-left">
             <div class="level-item">
-                <h3 class="title is-size-3 has-text-primary">{{author.name}}</h3>
+                <h3 class="title is-size-3 has-text-primary">
+                    {{page.p_title}}</h3>
             </div>
         </div>
         <div class="level-right">
             <div class="level-item">
                 <a href="/admin/view/all/authors">
                     <button class="button is-primary">
-                        <i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;Back to all authors.
+                        <i class="fas fa-angle-double-left"></i>&nbsp;&nbsp;&nbsp;&nbsp;Back to all standalone pages.
                     </button>
                 </a>
             </div>
@@ -22,18 +23,18 @@
     <div class="box">
         <div class="columns">
             <div class="column is-5">
-                <h5 class="title is-6">Name:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
+                <h5 class="title is-6">Title:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
                 </h5>
-                <p>{{author.name}}</p>
+                <p>{{page.p_title}}</p>
                 <hr/>
                 <h5 class="title is-6">Alias:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
                 </h5>
-                <p>{{author.alias}}</p>
+                <p>{{page.alias}}</p>
             </div>
             <div class="column is-7">
-                <h5 class="title is-6">Author bio:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
+                <h5 class="title is-6">Content:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
                 </h5>
-                <p>{{author.bio}}</p>
+                <p>{{page.p_content}}</p>
             </div>
         </div>
     </div>
