@@ -9,7 +9,8 @@ const showDeleteWarning = document.getElementById('show-delete-warning'),
       newBookTitle = document.getElementById('new-book-title'),
       toggleEditBookAlias = document.getElementById('toggle-edit-book-alias'),
       showBookAlias = document.getElementById('show-book-alias'),
-      editBookAlias = document.getElementById('edit-book-alias');
+      editBookAlias = document.getElementById('edit-book-alias'),
+      newBookAlias = document.getElementById('new-book-alias');
 
 /************************** Deleting Items: **************************/
 
@@ -46,6 +47,7 @@ const addToggler = (toggleButton, showBlock, editBlock) => {
     });
 }
 
+//A reusable function for adding submission handling to edit forms:
 const addEditor = (editForm, editInput, type, field) => {
     editForm.addEventListener('submit', e => {
         e.preventDefault();
@@ -60,31 +62,20 @@ const addEditor = (editForm, editInput, type, field) => {
     });
 }
 
+//Add toggler and editor for book titles:
 if(toggleEditBookTitle) addToggler(toggleEditBookTitle, showBookTitle, editBookTitle);
 if(editBookTitle) addEditor(editBookTitle, newBookTitle, 'book', 'title');
 
-// if(editBookTitle) editBookTitle.addEventListener('submit', e => {
-//     e.preventDefault();
-//     const alias = editBookTitle.dataset.alias;
-//     const title = newBookTitle.value;
-//     axios.put(`/admin/edit/book/${alias}`, {data: {title}})
-//     .then(response => {
-//         if(response.status === 200) window.location.reload();
-//     })
-//     .catch(err => console.log(err));
-// });
-
-// if(toggleEditBookAlias) toggleEditBookAlias.addEventListener('click', () => {
-//     showBookAlias.classList.toggle('hidden');
-//     editBookAlias.classList.toggle('hidden');
-// });
-
+//Add toggler and editor for book aliases:
+if(toggleEditBookAlias) addToggler(toggleEditBookAlias, showBookAlias, editBookAlias);
+//Aliases require a slightly different editor:
 if(editBookAlias) editBookAlias.addEventListener('submit', e => {
     e.preventDefault();
     const alias = editBookAlias.dataset.alias;
-    axios.put(`/admin/edit/book/${alias}`, {data: {alias}})
+    const newAlias = newBookAlias.value;
+    axios.put(`/admin/edit/book/${alias}`, {data: {alias: newAlias}})
     .then(response => {
-        if(response.status === 200) window.location.reload();
+        if(response.status === 200) window.location.replace(`/admin/view/book/${newAlias}`)
     })
     .catch(err => console.log(err));
 });
