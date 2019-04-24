@@ -18,7 +18,7 @@ module.exports = {
             };
             const token = jwt.sign({user: body}, process.env.AUTH_SECRET);
             res.cookie('access_token', token);
-            res.redirect('/admin/view/books');
+            res.redirect('/admin/view/all/books');
         });
     }
 }
