@@ -38,8 +38,8 @@ if(editBookTitle) editBookTitle.addEventListener('submit', e => {
     const alias = editBookTitle.dataset.alias;
     const title = newBookTitle.value;
     axios.put(`/admin/edit/book/${alias}`, {data: {title}})
-    .then(result => {
-        if(result.status === 200) window.location.reload();
+    .then(response => {
+        if(response.status === 200) window.location.reload();
     })
     .catch(err => console.log(err));
 });
