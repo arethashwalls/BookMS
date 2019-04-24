@@ -1,4 +1,6 @@
 //Import all needed DOM variables:
+
+//TODO: make this an object
 const showDeleteWarning = document.getElementById('show-delete-warning'),
       deleteWarning = document.getElementById('delete-warning'),
       yesDelete = document.getElementById('yes-delete'),
