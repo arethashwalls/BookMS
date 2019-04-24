@@ -1,3 +1,4 @@
+//Import all needed DOM variables:
 const showDeleteWarning = document.getElementById('show-delete-warning'),
       deleteWarning = document.getElementById('delete-warning'),
       yesDelete = document.getElementById('yes-delete'),
@@ -10,12 +11,15 @@ const showDeleteWarning = document.getElementById('show-delete-warning'),
       showBookAlias = document.getElementById('show-book-alias'),
       editBookAlias = document.getElementById('edit-book-alias');
 
+/************************** Deleting Items: **************************/
 
+//If on the proper page, listen for delete click and show warning:
 if(showDeleteWarning) showDeleteWarning.addEventListener('click', () => {
     showDeleteWarning.setAttribute('disabled', true);
     deleteWarning.classList.remove('hidden');
 });
 
+//Listen for 'yes' click and delete target:
 if(yesDelete) yesDelete.addEventListener('click', function() {
     const deleteId = this.dataset.deleteid;
     const deleteTarget = this.dataset.deletetarget
@@ -26,15 +30,31 @@ if(yesDelete) yesDelete.addEventListener('click', function() {
     .catch(err => console.log(err));
 });
 
+//Listen for 'no' click and return to regular view:
 if(noDelete) noDelete.addEventListener('click', () => {
     showDeleteWarning.removeAttribute('disabled');
     deleteWarning.classList.add('hidden');
 });
 
-if(toggleEditBookTitle) toggleEditBookTitle.addEventListener('click', () => {
-    showBookTitle.classList.toggle('hidden');
-    editBookTitle.classList.toggle('hidden');
-});
+/************************** Editing Fields: **************************/
+
+//A reusable function for adding togglers to edit icons:
+const addToggler = (toggleButton, showBlock, editBlock) => {
+    toggleButton.addEventListener('click', () => {
+        showBlock.classList.toggle('hidden');
+        editBlock.classList.toggle('hidden');
+    });
+}
+
+// const editField = (editForm, type, field) => {
+
+// }
+
+// if(toggleEditBookTitle) toggleEditBookTitle.addEventListener('click', () => {
+//     showBookTitle.classList.toggle('hidden');
+//     editBookTitle.classList.toggle('hidden');
+// });
+addToggler(toggleEditBookTitle, showBookTitle, editBookTitle);
 
 if(editBookTitle) editBookTitle.addEventListener('submit', e => {
     e.preventDefault();
@@ -47,10 +67,10 @@ if(editBookTitle) editBookTitle.addEventListener('submit', e => {
     .catch(err => console.log(err));
 });
 
-if(toggleEditBookAlias) toggleEditBookAlias.addEventListener('click', () => {
-    showBookAlias.classList.toggle('hidden');
-    editBookAlias.classList.toggle('hidden');
-});
+// if(toggleEditBookAlias) toggleEditBookAlias.addEventListener('click', () => {
+//     showBookAlias.classList.toggle('hidden');
+//     editBookAlias.classList.toggle('hidden');
+// });
 
 if(editBookAlias) editBookAlias.addEventListener('submit', e => {
     e.preventDefault();
