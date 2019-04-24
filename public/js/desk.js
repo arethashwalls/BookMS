@@ -75,7 +75,10 @@ if(editBookAlias) editBookAlias.addEventListener('submit', e => {
     const newAlias = newBookAlias.value;
     axios.put(`/admin/edit/book/${alias}`, {data: {alias: newAlias}})
     .then(response => {
-        if(response.status === 200) window.location.replace(`/admin/view/book/${newAlias}`)
+        if(response.status === 200) {
+            console.log(response.data.message)
+            window.location.replace(`/admin/view/book/${response.data.message.alias}`)
+        }
     })
     .catch(err => console.log(err));
 });
