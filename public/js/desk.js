@@ -46,26 +46,33 @@ const addToggler = (toggleButton, showBlock, editBlock) => {
     });
 }
 
-// const editField = (editForm, type, field) => {
+const addEditor = (editForm, editInput, type, field) => {
+    editForm.addEventListener('submit', e => {
+        e.preventDefault();
+        const alias = editForm.dataset.alias;
+        const updateValue = {};
+        updateValue[field] = editInput.value;
+        axios.put(`/admin/edit/${type}/${alias}`, {data: updateValue})
+        .then(response => {
+            if(response.status === 200) window.location.reload();
+        })
+        .catch(err => console.log(err))
+    });
+}
 
-// }
+if(toggleEditBookTitle) addToggler(toggleEditBookTitle, showBookTitle, editBookTitle);
+if(editBookTitle) addEditor(editBookTitle, newBookTitle, 'book', 'title');
 
-// if(toggleEditBookTitle) toggleEditBookTitle.addEventListener('click', () => {
-//     showBookTitle.classList.toggle('hidden');
-//     editBookTitle.classList.toggle('hidden');
+// if(editBookTitle) editBookTitle.addEventListener('submit', e => {
+//     e.preventDefault();
+//     const alias = editBookTitle.dataset.alias;
+//     const title = newBookTitle.value;
+//     axios.put(`/admin/edit/book/${alias}`, {data: {title}})
+//     .then(response => {
+//         if(response.status === 200) window.location.reload();
+//     })
+//     .catch(err => console.log(err));
 // });
-addToggler(toggleEditBookTitle, showBookTitle, editBookTitle);
-
-if(editBookTitle) editBookTitle.addEventListener('submit', e => {
-    e.preventDefault();
-    const alias = editBookTitle.dataset.alias;
-    const title = newBookTitle.value;
-    axios.put(`/admin/edit/book/${alias}`, {data: {title}})
-    .then(response => {
-        if(response.status === 200) window.location.reload();
-    })
-    .catch(err => console.log(err));
-});
 
 // if(toggleEditBookAlias) toggleEditBookAlias.addEventListener('click', () => {
 //     showBookAlias.classList.toggle('hidden');
