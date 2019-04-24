@@ -1,4 +1,5 @@
 {% extends "layouts/viewBookBase.njk" %}
+{% from "partials/editFieldForm.njk" import editFieldForm %}
 
 {% set activeTab = "info" %}
 
@@ -11,16 +12,7 @@
                 </a>
             </h5>
             <p id="show-book-title">"{{book.title}}"</p>
-            <form class="hidden" id="edit-book-title" data-alias="{{book.alias}}">
-                <div class="field has-addons">
-                    <div class="control is-expanded">
-                        <input class="input" type="text" placeholder="New book title." name="title" id="new-book-title">
-                    </div>
-                    <div class="control">
-                        <button class="button is-primary" type="submit">Submit</button>
-                    </div>
-                </div>
-            </form>
+            {{editFieldForm('book', 'title', book.alias)}}
             <hr/>
             <h5 class="title is-6">Alias:&nbsp;&nbsp;&nbsp;&nbsp;
                 <a id="toggle-edit-book-alias">
@@ -28,18 +20,12 @@
                 </a>
             </h5>
             <p id="show-book-alias">{{book.alias}}</p>
-             <form class="hidden" id="edit-book-alias" data-alias="{{book.alias}}">
-                <div class="field has-addons">
-                    <div class="control is-expanded">
-                        <input class="input" type="text" placeholder="New book alias." name="title" id="new-book-alias">
-                    </div>
-                    <div class="control">
-                        <button class="button is-primary" type="submit">Submit</button>
-                    </div>
-                </div>
-            </form>
+            {{editFieldForm('book', 'alias', book.alias)}}
             <hr/>
-            <h5 class="title is-6">Authors:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt" id="edit-book-authors"></i>
+            <h5 class="title is-6">Authors:&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="toggle-edit-book-authors">
+                    <i class="fas fa-pen-alt"></i>
+                </a>
             </h5>
             <ul id="show-book-authors">
                 {% for author in book.authors %}
@@ -50,15 +36,23 @@
             </ul>
         </div>
         <div class="column is-7">
-            <h5 class="title is-6">Cover Image:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
+            <h5 class="title is-6">Cover Image:&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="toggle-edit-book-cover">
+                    <i class="fas fa-pen-alt"></i>
+                </a>
             </h5>
             <p>
                 <a href="{{book.cover}}" target="_blank">{{book.cover}}</a>
             </p>
+            {{editFieldForm('book', 'cover', book.alias)}}
             <hr/>
-            <h5 class="title is-6">Synopsis:&nbsp;&nbsp;&nbsp;&nbsp;<i class="fas fa-pen-alt"></i>
+            <h5 class="title is-6">Synopsis:&nbsp;&nbsp;&nbsp;&nbsp;
+                <a id="toggle-edit-book-synopsis">
+                    <i class="fas fa-pen-alt"></i>
+                </a>
             </h5>
             <p>{{book.synopsis}}</p>
+            {{editFieldForm('book', 'synopsis', book.alias)}}
         </div>
     </section>
 {% endblock %}
