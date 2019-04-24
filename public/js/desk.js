@@ -5,7 +5,10 @@ const showDeleteWarning = document.getElementById('show-delete-warning'),
       toggleEditBookTitle = document.getElementById('toggle-edit-book-title'),
       showBookTitle = document.getElementById('show-book-title'),
       editBookTitle = document.getElementById('edit-book-title'),
-      newBookTitle = document.getElementById('new-book-title');
+      newBookTitle = document.getElementById('new-book-title'),
+      toggleEditBookAlias = document.getElementById('toggle-edit-book-alias'),
+      showBookAlias = document.getElementById('show-book-alias'),
+      editBookAlias = document.getElementById('edit-book-alias');
 
 
 if(showDeleteWarning) showDeleteWarning.addEventListener('click', () => {
@@ -38,6 +41,21 @@ if(editBookTitle) editBookTitle.addEventListener('submit', e => {
     const alias = editBookTitle.dataset.alias;
     const title = newBookTitle.value;
     axios.put(`/admin/edit/book/${alias}`, {data: {title}})
+    .then(response => {
+        if(response.status === 200) window.location.reload();
+    })
+    .catch(err => console.log(err));
+});
+
+if(toggleEditBookAlias) toggleEditBookAlias.addEventListener('click', () => {
+    showBookAlias.classList.toggle('hidden');
+    editBookAlias.classList.toggle('hidden');
+});
+
+if(editBookAlias) editBookAlias.addEventListener('submit', e => {
+    e.preventDefault();
+    const alias = editBookAlias.dataset.alias;
+    axios.put(`/admin/edit/book/${alias}`, {data: {alias}})
     .then(response => {
         if(response.status === 200) window.location.reload();
     })
