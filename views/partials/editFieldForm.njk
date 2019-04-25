@@ -1,8 +1,12 @@
-{% macro editFieldForm(type='', field='', alias='') %}
+{% macro editFieldForm(type='', field='', alias='', isArea=false) %}
     <form class="hidden" id="edit-{{type}}-{{field}}" data-alias="{{alias}}">
-        <div class="field has-addons">
+        <div class="field {% if not isArea %}has-addons{% endif %}">
             <div class="control is-expanded">
-                <input class="input" type="text" placeholder="New {{type}} {{field}}." name="{{field}}" id="new-{{type}}-{{field}}">
+                {% if isArea%}
+                    <textarea class="textarea" placeholder="New {{type}} {{field}}." name="{{field}}" id="new-{{type}}-{{field}}"></textarea>
+                {% else %}
+                    <input class="input" type="text" placeholder="New {{type}} {{field}}." name="{{field}}" id="new-{{type}}-{{field}}" />
+                {% endif %}
             </div>
             <div class="control">
                 <button class="button is-primary" type="submit">Submit</button>
