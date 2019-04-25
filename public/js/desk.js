@@ -1,41 +1,7 @@
-/************************** Get all DOM nodes: **************************/
+/************************** Deleting Items: **************************/
 
 //Get all delete buttons:
 const deleteWarningButtons = document.querySelectorAll('.show-delete-warning');
-
-//Reusable function for getting all editor nodes for a given type and field:
-const getEditorNodes = (type, field) => {
-    return {
-        toggle: document.getElementById(`toggle-edit-${type}-${field}`),
-        show: document.getElementById(`show-${type}-${field}`),
-        edit: document.getElementById(`edit-${type}-${field}`),
-        new: document.getElementById(`new-${type}-${field}`)
-    }
-}
-
-//Use getEditorNodes to get all editor nodes needed:
-const editors = {
-    book: {
-        title: getEditorNodes('book', 'title'),
-        alias: getEditorNodes('book', 'alias'),
-        cover: getEditorNodes('book', 'cover')
-    }
-}
-
-// const showDeleteWarning = document.getElementById('show-delete-warning'),
-//       deleteWarning = document.getElementById('delete-warning'),
-//       yesDelete = document.getElementById('yes-delete'),
-//       noDelete = document.getElementById('no-delete'),
-//       toggleEditBookTitle = document.getElementById('toggle-edit-book-title'),
-//       showBookTitle = document.getElementById('show-book-title'),
-//       editBookTitle = document.getElementById('edit-book-title'),
-//       newBookTitle = document.getElementById('new-book-title'),
-//       toggleEditBookAlias = document.getElementById('toggle-edit-book-alias'),
-//       showBookAlias = document.getElementById('show-book-alias'),
-//       editBookAlias = document.getElementById('edit-book-alias'),
-//       newBookAlias = document.getElementById('new-book-alias');
-
-/************************** Deleting Items: **************************/
 
 //Add listener to all delete warning buttons:
 deleteWarningButtons.forEach(button => button.addEventListener('click', function() {
@@ -70,48 +36,53 @@ deleteWarningButtons.forEach(button => button.addEventListener('click', function
 
 /************************** Editing Fields: **************************/
 
-// //A reusable function for adding togglers to edit icons:
-// const addToggler = (toggleButton, showBlock, editBlock) => {
-//     toggleButton.addEventListener('click', () => {
-//         showBlock.classList.toggle('hidden');
-//         editBlock.classList.toggle('hidden');
-//     });
-// }
+//Define an Editor class for adding editors for each type (book, author, et c) and field (title, name, et c):
+class Editor {
+    constructor(type, field) {
+        //Get all DOM nodes:
+        this.toggle = document.getElementById(`toggle-edit-${type}-${field}`);
+        this.show = document.getElementById(`show-${type}-${field}`);
+        this.edit = document.getElementById(`edit-${type}-${field}`);
+        this.new = document.getElementById(`new-${type}-${field}`);
+        //Add toggler listener to toggle button, will switch between edit form and display:
+        this.toggle.addEventListener('click', () => {
+            this.show.classList.toggle('hidden');
+            this.edit.classList.toggle('hidden');
+        });
+        //Add submit lister to edit form:
+        this.edit.addEventListener('submit', e => {
+            //Prevent reload:
+            e.preventDefault();
+            //Get item's alias:
+            const alias = this.edit.dataset.alias;
+            //For all but alias edits:
+            if(field !== 'alias') {
+                //Create an object with the update field and value:
+                const updateValue = {};
+                updateValue[field] = this.new.value;
+                //Call PUT route with object:
+                axios.put(`/admin/edit/${type}/${alias}`, {data: updateValue})
+                //Reload on success:
+                .then(response => {
+                    if(response.status === 200) window.location.reload();
+                })
+                .catch(err => console.log(err));
+            //For alias edits:
+            } else {
+                //Get new alias:
+                const newAlias = this.new.value;
+                //Call PUT route with new alias:
+                axios.put(`/admin/edit/book/${alias}`, {data: {alias: newAlias}})
+                //On sucess, reload with new alias as URL:
+                .then(response => {
+                    console.log(response.data.message.alias)
+                    if(response.status === 200) window.location.replace(`/admin/view/book/${response.data.message.alias}`)
+                })
+                .catch(err => console.log(err));
+            }
+        });
+    }
+}
 
-// //A reusable function for adding submission handling to edit forms:
-// const addEditor = (editForm, editInput, type, field) => {
-//     editForm.addEventListener('submit', e => {
-//         e.preventDefault();
-//         const alias = editForm.dataset.alias;
-//         const updateValue = {};
-//         updateValue[field] = editInput.value;
-//         axios.put(`/admin/edit/${type}/${alias}`, {data: updateValue})
-//         .then(response => {
-//             if(response.status === 200) window.location.reload();
-//         })
-//         .catch(err => console.log(err))
-//     });
-// }
-
-// //Add toggler and editor for book titles:
-// if(toggleEditBookTitle) addToggler(toggleEditBookTitle, showBookTitle, editBookTitle);
-// if(editBookTitle) addEditor(editBookTitle, newBookTitle, 'book', 'title');
-
-// //Add toggler and editor for book aliases:
-// if(toggleEditBookAlias) addToggler(toggleEditBookAlias, showBookAlias, editBookAlias);
-// //Aliases require a slightly different editor:
-// if(editBookAlias) editBookAlias.addEventListener('submit', e => {
-//     e.preventDefault();
-//     const alias = editBookAlias.dataset.alias;
-//     const newAlias = newBookAlias.value;
-//     axios.put(`/admin/edit/book/${alias}`, {data: {alias: newAlias}})
-//     .then(response => {
-//         if(response.status === 200) {
-//             console.log(response.data.message)
-//             window.location.replace(`/admin/view/book/${response.data.message.alias}`)
-//         }
-//     })
-//     .catch(err => console.log(err));
-// });
-
-// //Add toggler and editor for book cover image:
+const bookTitleEditor = new Editor('book', 'title');
+const bookAliasEditor = new Editor('book', 'alias');
