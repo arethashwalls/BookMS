@@ -84,5 +84,13 @@ class Editor {
     }
 }
 
-const bookTitleEditor = new Editor('book', 'title');
-const bookAliasEditor = new Editor('book', 'alias');
+const allFields = [
+    {
+        name: 'book',
+        fields: ['title', 'alias']
+    }
+]
+
+allFields.forEach(type => {
+    type.fields.forEach(field => new Editor(type.name, field));
+})
