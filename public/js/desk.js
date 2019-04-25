@@ -84,13 +84,16 @@ class Editor {
     }
 }
 
+//List out all possible fields for each type:
 const allFields = [
     {
         name: 'book',
-        fields: ['title', 'alias']
+        fields: ['title', 'alias', 'cover', 'synopsis']
     }
 ]
 
+//Loop through all types:
 allFields.forEach(type => {
+    //Loop through each of the type's fields and add an editor for it:
     type.fields.forEach(field => new Editor(type.name, field));
 })

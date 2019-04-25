@@ -42,7 +42,7 @@
                 </a>
             </h5>
             <p>
-                <a href="{{book.cover}}" target="_blank">{{book.cover}}</a>
+                <a id="show-book-cover" href="{{book.cover}}" target="_blank">{{book.cover}}</a>
             </p>
             {{editFieldForm('book', 'cover', book.alias)}}
             <hr/>
@@ -51,7 +51,7 @@
                     <i class="fas fa-pen-alt"></i>
                 </a>
             </h5>
-            <p>{{book.synopsis}}</p>
+            <p id="show-book-synopsis">{{book.synopsis}}</p>
             {{editFieldForm('book', 'synopsis', book.alias)}}
         </div>
     </section>
