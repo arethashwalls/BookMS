@@ -2,7 +2,7 @@ const { User } = require('../../../../models'),
       { truncate } = require('../../../../utils').formaters;
 
 module.exports = {
-    getViewAuthors: (req, res) => {
+    getAuthors: (req, res) => {
         User.findOne({})
         .populate('authors')
         .then(response => {

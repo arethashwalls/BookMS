@@ -1,7 +1,7 @@
 const { Page } = require('../../../../models');
 
 module.exports = {
-    viewPage: (req, res) => {
+    getPage: (req, res) => {
         const { alias } = req.params;
         Page.findOne({alias})
         .then(page => {

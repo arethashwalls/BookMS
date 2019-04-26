@@ -2,7 +2,7 @@ const { Book } = require('../../../../../models');
 
 
 module.exports = {
-    viewBookPages: (req, res) => {
+    viewPages: (req, res) => {
         const { alias } = req.params;
         Book.findOne({alias})
         .populate('stdalone_pages')

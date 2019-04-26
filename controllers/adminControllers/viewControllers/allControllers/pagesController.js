@@ -2,7 +2,7 @@ const { User } = require('../../../../models'),
      { truncate } = require('../../../../utils').formaters;
 
 module.exports = {
-    getViewPages: (req, res) => {
+    getPages: (req, res) => {
         User.findOne({})
         .populate('stdalone_pages')
         .then(response => {

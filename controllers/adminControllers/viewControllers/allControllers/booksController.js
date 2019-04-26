@@ -3,7 +3,7 @@ const { User } = require('../../../../models'),
       { authorfy } = formaters;
 
 module.exports = {
-    getViewBooks: (req, res) => {
+    getBooks: (req, res) => {
         User.findOne({})
         .populate({
             path: 'books',

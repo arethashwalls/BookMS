@@ -3,7 +3,7 @@ const { Book } = require('../../../../models'),
 
 
 module.exports = {
-    viewBook: (req, res) => {
+    getBook: (req, res) => {
         const { alias } = req.params;
         Book.findOne({alias})
         .populate('authors')
