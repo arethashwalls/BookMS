@@ -89,6 +89,10 @@ const allFields = [
     {
         name: 'book',
         fields: ['title', 'alias', 'cover', 'synopsis']
+    },
+    {
+        name: 'author',
+        fields: ['name', 'alias', ]
     }
 ]
 
