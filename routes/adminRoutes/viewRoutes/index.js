@@ -1,9 +1,9 @@
 const express = require('express'),
       router = express.Router(),
       allRoutes = require('./allRoutes'),
-      viewOneRoutes = require('./viewOneRoutes');
+      oneRoutes = require('./oneRoutes');
 
 router.use('/all', allRoutes);
-router.use('/', viewOneRoutes)
+router.use('/', oneRoutes)
 
 module.exports = router;
