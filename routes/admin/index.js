@@ -4,12 +4,11 @@ const express = require('express'),
       author = require('./author'),
       book = require('./book'),
       page = require('./page'),
-      jwtVerify = require('../../controllers').adminControllers.jwtVerify;
+      jwtVerify = require('../../controllers').admin .jwtVerify;
 
 router.use('/', auth);
 router.use('/authors', jwtVerify, author);
 router.use('/books', jwtVerify, book);
 router.use('/pages', jwtVerify, page);
-router.use('/delete', deleteRoutes);
 
 module.exports = router;

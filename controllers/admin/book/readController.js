@@ -1,5 +1,5 @@
-const { Book, User } = require('../../../../models'),
-{ authorfy } = require('../../../../utils/formaters');
+const { Book, User } = require('../../../models'),
+{ authorfy } = require('../../../utils/formaters');
 
 module.exports = {
     getBook: (req, res) => {

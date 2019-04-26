@@ -1,5 +1,5 @@
-const { User, Page } = require('../../../../models'),
-     { truncate } = require('../../../../utils').formaters;
+const { User, Page } = require('../../../models'),
+     { truncate } = require('../../../utils').formaters;
 
 module.exports = {
     getPage: (req, res) => {

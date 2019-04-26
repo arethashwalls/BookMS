@@ -1,7 +1,7 @@
 //Imports:
 const express = require('express'),
       router = express.Router(),
-      { loginController } = require('../../../controllers').adminControllers.authControllers;
+      { loginController } = require('../../../controllers').admin.auth;
 
 //Routes:
 router.route('/')

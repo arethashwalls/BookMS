@@ -1,7 +1,7 @@
 //Imports:
 const express = require('express'),
       router = express.Router(),
-      { logoutController } = require('../../../controllers').adminControllers.authControllers;
+      { logoutController } = require('../../../controllers').admin.auth;
 
 //Routes:
 router.route('/')
