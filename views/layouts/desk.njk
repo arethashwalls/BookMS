@@ -29,23 +29,23 @@
         <div class="modal-content box">
             {% if isNew %}
                 {% if isAuthor %}
-                    {% include "admin/newMakers/newAuthor.njk" %}
+                    {% include "admin/creators/author.njk" %}
                 </div>
                 <a href="/admin/view/all/authors">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isBook %}
-                {% include "admin/newMakers/newBook.njk" %}
+                {% include "admin/creators/book.njk" %}
                 <a href="/admin/view/all/books">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isPage %}
-                {% include "admin/newMakers/newPage.njk" %}
+                {% include "admin/creators/page.njk" %}
                 <a href="/admin/view/all/pages">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isBookChapter %}
-                {% include "admin/newMakers/newBookChapter.njk" %}
+                {% include "admin/creators/bookSubCreators/chapter.njk" %}
                 <a href="/admin/view/book/{{book.alias}}/chapters">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
