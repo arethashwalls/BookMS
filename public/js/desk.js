@@ -85,19 +85,11 @@ class Editor {
 }
 
 //List out all possible fields for each type:
-const allFields = [
-    {
-        name: 'book',
-        fields: ['title', 'alias', 'cover', 'synopsis']
-    },
-    {
-        name: 'author',
-        fields: ['name', 'alias', ]
-    }
-]
-
-//Loop through all types:
-allFields.forEach(type => {
-    //Loop through each of the type's fields and add an editor for it:
-    type.fields.forEach(field => new Editor(type.name, field));
-})
+const allFields = {
+    book: ['title', 'alias', 'cover', 'synopsis'],
+    author: ['name', 'alias', ]
+}
+//Get current type from viewbox div:
+const type = document.getElementById('viewbox').dataset.type;
+//If viewbox had a type, loop through all fields for that type and add an editor:
+if(type) allFields[type].forEach(field => new Editor(type, field));
