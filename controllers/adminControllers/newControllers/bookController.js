@@ -7,7 +7,7 @@ module.exports = {
         .populate('authors', ['name', '_id'])
         .then(response => {
             const { siteTitle, authors } = response;
-            res.render('admin/viewers/viewAll/viewBooks', {
+            res.render('admin/viewers/all/books', {
                 username: 'Areeeeth',
                 num: 9,
                 inAdmin: true,

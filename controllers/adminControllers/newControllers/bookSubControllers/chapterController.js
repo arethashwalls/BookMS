@@ -1,5 +1,5 @@
-const { Book, Chapter } = require('../../../models');
-const { urlify } = require('../../../utils').formaters;
+const { Book, Chapter } = require('../../../../models');
+const { urlify } = require('../../../../utils').formaters;
 
 module.exports = {
     getNewBookChapter: (req, res) => {
@@ -7,7 +7,7 @@ module.exports = {
         Book.findOne({alias})
         .populate('chapters')
         .then(book => {
-            res.render('admin/viewers/viewOne/viewBookChapters', {
+            res.render('admin/viewers/all/chapters', {
                 username: 'Areeeeth',
                 inAdmin: true,
                 num: 9,

@@ -6,7 +6,7 @@ module.exports = {
         User.findOne({}, 'siteTitle')
         .then(response => {
             const siteTitle = response.data;
-            res.render('admin/viewers/viewAll/viewPages', {
+            res.render('admin/viewers/all/pages', {
                 username: 'Areeeeth',
                 num: 9,
                 inAdmin: true,
