@@ -1,8 +1,8 @@
 const express = require('express'),
-      router = express.Router(),
+      router = express.Router({mergeParams: true}),
       { viewChapterController } = require('../../../../../controllers').adminControllers.viewControllers.viewOneControllers;
 
-router.route('/:bookAlias/chapter/:ch_num')
+router.route('/:ch_num')
       .get(viewChapterController.viewChapter);
 
 module.exports = router;

@@ -1,8 +1,8 @@
 const express = require('express'),
       router = express.Router(),
+      authorsRoutes = require('./authorsRoutes'),
       bookSubRoutes = require('./bookSubRoutes'),
       booksRoutes = require('./booksRoutes'),
-      authorsRoutes = require('./authorsRoutes'),
       pagesRoutes = require('./pagesRoutes');
 
 router.use('/:bookAlias', bookSubRoutes);
