@@ -13,7 +13,7 @@ module.exports = {
         })
         .then(response => {
             const { books, siteTitle } = response;
-            res.render('admin/viewers/viewAll/viewBooks', {
+            res.render('admin/viewers/all/books', {
                 username: 'Arthur',
                 inAdmin: true,
                 num: books.length,

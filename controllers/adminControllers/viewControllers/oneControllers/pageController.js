@@ -6,7 +6,7 @@ module.exports = {
         Page.findOne({alias})
         .then(page => {
             console.log(page)
-            res.render('admin/viewers/viewOne/viewPage', {
+            res.render('admin/viewers/one/page', {
                 username: 'aaah',
                 siteTitle: 'aah',
                 inAdmin: true,

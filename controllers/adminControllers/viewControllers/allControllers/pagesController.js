@@ -8,7 +8,7 @@ module.exports = {
         .then(response => {
             const { stdalone_pages, site_title, books } = response;
             stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
-            res.render('admin/viewers/viewAll/viewPages', {
+            res.render('admin/viewers/all/pages', {
                 username: 'Arthur',
                 inAdmin: true,
                 num: books.length,

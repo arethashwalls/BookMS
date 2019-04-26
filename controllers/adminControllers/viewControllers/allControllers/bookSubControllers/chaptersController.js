@@ -7,7 +7,7 @@ module.exports = {
         .populate('chapters')
         .then(book => {
             console.log(book)
-            res.render('admin/viewers/viewOne/viewBookChapters', {
+            res.render('admin/viewers/all/bookSubViews/chapters', {
                 username: 'aaah',
                 siteTitle: 'aah',
                 inAdmin: true,

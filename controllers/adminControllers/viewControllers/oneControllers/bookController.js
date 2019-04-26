@@ -9,7 +9,7 @@ module.exports = {
         .populate('authors')
         .then(book => {
             const authorstring = authorfy( book.authors.map(author => author.name) );
-            res.render('admin/viewers/viewOne/viewBookInfo', {
+            res.render('admin/viewers/one/book', {
                 username: 'aaah',
                 siteTitle: 'aah',
                 inAdmin: true,

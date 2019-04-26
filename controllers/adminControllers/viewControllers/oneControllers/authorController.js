@@ -5,7 +5,7 @@ module.exports = {
         const { alias } = req.params;
         Author.findOne({alias})
         .then(author => {
-            res.render('admin/viewers/viewOne/viewAuthor', {
+            res.render('admin/viewers/one/author', {
                 username: 'aaah',
                 siteTitle: 'aah',
                 inAdmin: true,
