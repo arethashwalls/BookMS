@@ -2,7 +2,7 @@ const { Book, Chapter } = require('../../../../models');
 const { urlify } = require('../../../../utils').formaters;
 
 module.exports = {
-    getNewBookChapter: (req, res) => {
+    getNewChapter: (req, res) => {
         const { alias } = req.params;
         Book.findOne({alias})
         .populate('chapters')
@@ -20,7 +20,7 @@ module.exports = {
         })
         .catch(err => console.log(err));
     },
-    postNewBookChapter: (req, res) => {
+    postNewChapter: (req, res) => {
         const { ch_title, ch_num } = req.body;
         const bookAlias = req.params.alias;
         const alias = urlify(ch_title);

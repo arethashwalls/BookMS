@@ -9,7 +9,7 @@ router.route('/new')
 
 router.route('/')
     .get(readController.getChapter)
-    .put(updateController.updateChapter)
-    .delete(deleteController.deleteChapter)
+    // .put(updateController.updateChapter)
+    // .delete(deleteController.deleteChapter)
 
 module.exports = router;

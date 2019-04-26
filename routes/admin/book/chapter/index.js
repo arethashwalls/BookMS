@@ -1,6 +1,6 @@
 //Imports:
 const express = require('express'),
-      router = express.Router(),
+      router = express.Router({mergeParams: true}),
       allRoutes = require('./allRoutes'),
       oneRoutes = require('./oneRoutes');
 
