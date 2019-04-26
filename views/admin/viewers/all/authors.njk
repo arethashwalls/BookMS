@@ -10,7 +10,7 @@
                 <article class="tile is-child is-4">
                     <div class="box">
                         <button class="delete is-pulled-right" id="show-delete-warning"></button>                        
-                        <h5 class="title"><a href="/admin/view/author/{{author.alias}}">{{author.name}}</a></h5></a>
+                        <h5 class="title"><a href="/admin/authors/{{author.alias}}">{{author.name}}</a></h5></a>
                         <p>{{author.bio}}</p>
                         {% set deleteId = author._id %}
                         {% include "partials/deleteWarning.njk" %}
@@ -19,7 +19,7 @@
             {% endfor %}
             <article class="tile is-child is-4">
                 <div class="box has-background-dark">
-                    <a href="/admin/new/author">
+                    <a href="/admin/authors/new">
                         <h5 class="title is-inline-flex has-text-white">
                             Create a new author.
                             <span class="icon">

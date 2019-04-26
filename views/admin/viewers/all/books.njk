@@ -10,7 +10,7 @@
                 <article class="tile is-child is-4">
                     <div class="box">
                         <button class="delete is-pulled-right show-delete-warning" data-deleteid="{{book._id}}"></button>
-                        <h5 class="title"><a href="/admin/view/book/{{book.alias}}">{{book.title}}</a></h5>
+                        <h5 class="title"><a href="/admin/books/{{book.alias}}">{{book.title}}</a></h5>
                         <p class="subtitle">{{book.author_string}}</p>
                         {% if book.cover %}
                             <img src="{{book.cover}}"/>
@@ -22,7 +22,7 @@
             {% endfor %}
             <article class="tile is-child is-4">
                 <div class="box has-background-dark">
-                    <a href="/admin/new/book" class="is-clearfix">
+                    <a href="/admin/books/new" class="is-clearfix">
                         <h5 class="title is-inline-flex has-text-white">
                             Create a new book
                             <span class="icon has-text-white">

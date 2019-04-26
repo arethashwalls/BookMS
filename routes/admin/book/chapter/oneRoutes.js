@@ -7,7 +7,7 @@ router.route('/new')
     .get(createController.getNewChapter)
     .post(createController.postNewChapter);
 
-router.route('/')
+router.route('/:ch_num')
     .get(readController.getChapter)
     // .put(updateController.updateChapter)
     // .delete(deleteController.deleteChapter)
