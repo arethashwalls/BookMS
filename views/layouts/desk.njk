@@ -31,17 +31,17 @@
                 {% if isAuthor %}
                     {% include "admin/creators/author.njk" %}
                 </div>
-                <a href="/admin/view/all/authors">
+                <a href="/admin/authors/all">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isBook %}
                 {% include "admin/creators/book.njk" %}
-                <a href="/admin/view/all/books">
+                <a href="/admin/books/all">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isPage %}
                 {% include "admin/creators/page.njk" %}
-                <a href="/admin/view/all/pages">
+                <a href="/admin/pages/all">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% elif isBookChapter %}
