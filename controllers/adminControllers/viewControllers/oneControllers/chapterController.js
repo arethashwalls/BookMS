@@ -1,4 +1,4 @@
-const { Book, Chapter } = require('../../../../models');
+const { Book, Chapter } = require('../../../../../models');
 
 module.exports = {
     viewChapter: (req, res) => {
