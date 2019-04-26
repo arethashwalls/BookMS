@@ -1,7 +1,21 @@
-const { User } = require('../../../../models'),
+const { Author } = require('../../../../models'),
+      { User } = require('../../../../models'),
       { truncate } = require('../../../../utils').formaters;
 
 module.exports = {
+    getAuthor: (req, res) => {
+        const { alias } = req.params;
+        Author.findOne({alias})
+        .then(author => {
+            res.render('admin/viewers/one/author', {
+                username: 'aaah',
+                siteTitle: 'aah',
+                inAdmin: true,
+                author
+            })
+        })
+        .catch(err => console.log(err));
+    },
     getAuthors: (req, res) => {
         User.findOne({})
         .populate('authors')
