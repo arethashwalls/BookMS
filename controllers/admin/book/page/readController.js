@@ -20,12 +20,11 @@ module.exports = {
         Book.findOne({alias})
         .populate('stdalone_pages')
         .then(response => {
-            const { stdalone_pages, site_title, books } = response;
+            const { stdalone_pages, site_title } = response;
             stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
-            res.render('admin/viewers/all/pages', {
+            res.render('admin/viewers/all/bookSubViews/pages', {
                 username: 'Arthur',
                 inAdmin: true,
-                num: books.length,
                 siteTitle: site_title,
                 stdalonePages: stdalone_pages
             });
