@@ -87,7 +87,8 @@ class Editor {
 //List out all possible fields for each type:
 const allFields = {
     book: ['title', 'alias', 'cover', 'synopsis'],
-    author: ['name', 'alias', ]
+    author: ['name', 'alias', 'bio'],
+    page: ['title', 'alias', 'content']
 }
 //Get current type from viewbox div:
 const type = document.getElementById('viewbox').dataset.type;
