@@ -1,9 +1,9 @@
 //Imports:
 const express = require('express'),
       router = express.Router(),
-      { viewAuthorsController } = require('../../../../controllers').adminControllers.viewControllers.viewAllControllers;
+      { authorsController } = require('../../../../controllers').adminControllers.viewControllers.allControllers;
 
 router.route('/')
-    .get(viewAuthorsController.getViewAuthors)
+    .get(authorsController.getAuthors)
 
 module.exports = router;

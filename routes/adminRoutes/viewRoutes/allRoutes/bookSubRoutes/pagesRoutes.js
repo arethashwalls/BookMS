@@ -1,8 +1,8 @@
 const express = require('express'),
       router = express.Router({mergeParams: true}),
-      { viewBookPageController } = require('../../../../../controllers').adminControllers.viewControllers.viewOneControllers;
+      { pagesController } = require('../../../../../controllers').adminControllers.viewControllers.allControllers.bookSubControllers;
 
 router.route('/')
-      .get(viewBookPageController.viewBookPages);
+      .get(pagesController.getPages);
 
 module.exports = router;

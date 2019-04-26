@@ -1,7 +1,7 @@
 const { Book } = require('../../../../../models');
 
 module.exports = {
-    viewChapters: (req, res) => {
+    getChapters: (req, res) => {
         const { alias } = req.params;
         Book.findOne({alias})
         .populate('chapters')

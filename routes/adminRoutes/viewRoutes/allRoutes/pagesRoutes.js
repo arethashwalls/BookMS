@@ -1,9 +1,9 @@
 //Imports:
 const express = require('express'),
       router = express.Router(),
-      { viewPagesController } = require('../../../../controllers').adminControllers.viewControllers.viewAllControllers;
+      { pagesController } = require('../../../../controllers').adminControllers.viewControllers.allControllers;
 
 router.route('/')
-    .get(viewPagesController.getViewPages)
+    .get(pagesController.getPages)
 
 module.exports = router;
