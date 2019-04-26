@@ -1,4 +1,4 @@
-const { User, Book } = require('../../../models');
+const { Author, Book, User } = require('../../../models');
 const { urlify } = require('../../../utils').formaters;
 
 module.exports = {
@@ -25,14 +25,27 @@ module.exports = {
         const alias = urlify(title);
         Book.create({title, alias, authors, cover, synopsis})
         .then(newBook => {
-            console.log('\nBook created: ' + newBook.title + '\n');
-            User.findOneAndUpdate({}, {
-                $push: {books: newBook._id}
-            })
-            .then(user => {
-                res.redirect('../view/all/books');
+            return new Promise((resolve, reject) => {
+                console.log('\nBook created: ' + newBook.title + '\n');
+                User.findOneAndUpdate({}, {
+                    $push: {books: newBook._id}
+                })
+                .then(newUser => resolve(newBook))
+                .catch(err => reject(err));
             })
         })
+        .then(newBook => {
+            return new Promise((resolve, reject) => {
+                newBook.authors.forEach(author => {
+                    Author.findOneAndUpdate({_id: author._id}, {
+                        $push: {books: newBook._id}
+                    })
+                    .catch(err => reject(err))
+                });
+                resolve(newBook);
+            })            
+        })
+        .then(() => res.redirect('../view/all/books'))
         .catch(err => console.log(err));
     }
 }
