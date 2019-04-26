@@ -21,10 +21,10 @@ module.exports = {
         .catch(err => console.log(err));
     },
     postNewChapter: (req, res) => {
-        const { ch_title, ch_num } = req.body;
+        const { ch_title } = req.body;
         const bookAlias = req.params.alias;
         const alias = urlify(ch_title);
-        Chapter.create({ch_title, ch_num, alias})
+        Chapter.create({ch_title, alias})
         .then(newChapter => {
             console.log('\nChapter created: ' + newChapter.title + '\n');
             Book.findOneAndUpdate({alias: bookAlias}, {$push: {chapters: newChapter._id}})
