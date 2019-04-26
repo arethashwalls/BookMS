@@ -1,8 +1,8 @@
 const express = require('express'),
       router = express.Router(),
-      { viewAuthorController } = require('../../../../controllers').adminControllers.viewControllers.viewOneControllers;
+      { authorController } = require('../../../../controllers').adminControllers.viewControllers.oneControllers;
 
 router.route('/:alias')
-      .get(viewAuthorController.viewAuthor);
+      .get(authorController.getAuthor);
 
 module.exports = router;

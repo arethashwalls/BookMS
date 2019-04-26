@@ -1,8 +1,8 @@
 const express = require('express'),
       router = express.Router(),
-      { viewPageController } = require('../../../../controllers').adminControllers.viewControllers.viewOneControllers;
+      { pageController } = require('../../../../controllers').adminControllers.viewControllers.oneControllers;
 
 router.route('/:alias')
-      .get(viewPageController.viewPage);
+      .get(pageController.getPage);
 
 module.exports = router;
