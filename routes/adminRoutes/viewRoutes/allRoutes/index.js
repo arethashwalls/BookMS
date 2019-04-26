@@ -5,7 +5,7 @@ const express = require('express'),
       booksRoutes = require('./booksRoutes'),
       pagesRoutes = require('./pagesRoutes');
 
-router.use('/:bookAlias', bookSubRoutes);
+router.use('/:alias', bookSubRoutes);
 router.use('/books', booksRoutes);
 router.use('/authors', authorsRoutes);
 router.use('/pages', pagesRoutes);
