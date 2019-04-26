@@ -8,7 +8,7 @@ module.exports = {
         .then(response => {
             const { authors, siteTitle, books } = response;
             authors.forEach(author => author.bio = truncate(author.bio));
-            res.render('admin/viewers/viewAll/viewAuthors', {
+            res.render('admin/viewers/all/authors', {
                 username: 'Arthur',
                 inAdmin: true,
                 num: books.length,
