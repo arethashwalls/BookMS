@@ -18,5 +18,9 @@ module.exports = {
             });
         })
         .catch(err => console.log(err));
+    },
+    postNewBookChapter: (req, res) => {
+        console.log(req);
+        res.redirect('/admin/view/book/singles-and-singularities/chapters')
     }
 }

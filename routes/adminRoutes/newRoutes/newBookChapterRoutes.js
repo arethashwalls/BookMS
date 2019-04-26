@@ -3,6 +3,7 @@ const express = require('express'),
       { newBookChapterController } = require('../../../controllers').adminControllers.newControllers;
 
 router.route('/:alias')
-    .get(newBookChapterController.getNewBookChapter);
+    .get(newBookChapterController.getNewBookChapter)
+    .post(newBookChapterController.postNewBookChapter);
 
 module.exports = router;
