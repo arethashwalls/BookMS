@@ -5,7 +5,4 @@ const express = require('express'),
 router.route('/:alias')
       .get(viewBookController.viewBook);
 
-router.route('/:alias/pages')
-      .get(viewBookController.viewBookPages);
-
 module.exports = router;
