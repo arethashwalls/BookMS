@@ -1,11 +1,9 @@
 const express = require('express'),
       router = express.Router(),
-      publicRoutes = require('./publicRoutes'),
-      adminRoutes = require('./adminRoutes'),
-      apiRoutes = require('./apiRoutes');
+      public = require('./public'),
+      admin = require('./admin');
 
-router.use('/', publicRoutes);
-router.use('/admin', adminRoutes);
-router.use('/api', apiRoutes);
+router.use('/', public);
+router.use('/admin', admin);
 
 module.exports = router;
