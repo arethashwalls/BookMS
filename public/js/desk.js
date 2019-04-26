@@ -72,11 +72,10 @@ class Editor {
                 //Get new alias:
                 const newAlias = this.new.value;
                 //Call PUT route with new alias:
-                axios.put(`/admin/edit/book/${alias}`, {data: {alias: newAlias}})
+                axios.put(`/admin/edit/${type}/${alias}`, {data: {alias: newAlias}})
                 //On sucess, reload with new alias as URL:
                 .then(response => {
-                    console.log(response.data.message.alias)
-                    if(response.status === 200) window.location.replace(`/admin/view/book/${response.data.message.alias}`)
+                    if(response.status === 200) window.location.replace(`/admin/view/${type}/${response.data.message.alias}`)
                 })
                 .catch(err => console.log(err));
             }
@@ -88,7 +87,7 @@ class Editor {
 const allFields = {
     book: ['title', 'alias', 'cover', 'synopsis'],
     author: ['name', 'alias', 'bio'],
-    page: ['title', 'alias', 'content']
+    page: ['p_title', 'alias', 'p_content']
 }
 //Get current type from viewbox div:
 const type = document.getElementById('viewbox').dataset.type;
