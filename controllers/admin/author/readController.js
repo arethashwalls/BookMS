@@ -1,5 +1,4 @@
-const { Author } = require('../../../../models'),
-      { User } = require('../../../../models'),
+const { Author, User } = require('../../../../models'),
       { truncate } = require('../../../../utils').formaters;
 
 module.exports = {
