@@ -3,20 +3,22 @@
 {% set activeTab = "pages" %}
 
 {% block viewBookContent %}
-    <ol>
-        {% for page in book.stdalone_pages%}
-            <li>
-                <h5 class="title is-6">
-                    <a>{{page.p_title}}</a>
-                </h5>
-            </li>
-        {% endfor %}
-    </ol>
-    <a href="" class="is-pulled-right">
-        <button class="button is-dark">
-            <span class="has-text-white">
-                <i class="fas fa-plus-circle"></i>
-            </span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new standalone page.
-        </button>
-    </a>
+    <div class="section is-clearfix">
+        <ol>
+            {% for page in book.stdalone_pages%}
+                <li>
+                    <h5 class="title is-6">
+                        <a>{{page.p_title}}</a>
+                    </h5>
+                </li>
+            {% endfor %}
+        </ol>
+        <a href="" class="is-pulled-right">
+            <button class="button is-dark">
+                <span class="has-text-white">
+                    <i class="fas fa-plus-circle"></i>
+                </span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new standalone page.
+            </button>
+        </a>
+    </div>
 {% endblock %}

@@ -3,18 +3,20 @@
 {% set activeTab = "chapters" %}
 
 {% block viewBookContent %}
-    <ol>
-        {% for chapter in book.chapters%}
-            <li>
-                <h5 class="title is-6">
-                    <a>{{chapter.ch_title}}</a>
-                </h5>
-            </li>
-        {% endfor %}
-    </ol>
-    <a href="/admin/new/chapter/{{book.alias}}" class="button is-dark is-pulled-right">
-        <span class="has-text-white">
-            <i class="fas fa-plus-circle"></i>
-        </span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new chapter.
-    </a>
+    <div class="section is-clearfix">
+        <ol>
+            {% for chapter in book.chapters%}
+                <li>
+                    <h5 class="title is-6">
+                        <a>{{chapter.ch_title}}</a>
+                    </h5>
+                </li>
+            {% endfor %}
+        </ol>
+        <a href="/admin/new/chapter/{{book.alias}}" class="button is-dark is-pulled-right">
+            <span class="has-text-white">
+                <i class="fas fa-plus-circle"></i>
+            </span>&nbsp;&nbsp;&nbsp;&nbsp;Create a new chapter.
+        </a>
+    </div>
 {% endblock %}
