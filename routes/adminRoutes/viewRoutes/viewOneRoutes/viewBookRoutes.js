@@ -5,9 +5,6 @@ const express = require('express'),
 router.route('/:alias')
       .get(viewBookController.viewBook);
 
-router.route('/:alias/chapters')
-      .get(viewBookController.viewBookChapters);
-
 router.route('/:alias/pages')
       .get(viewBookController.viewBookPages);
 
