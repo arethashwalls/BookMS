@@ -1,7 +1,11 @@
 const express = require('express'),
       router = express.Router(),
-      editBookRoutes = require('./editBookRoutes');
+      editAuthorRoutes = require('./editAuthorRoutes'),
+      editBookRoutes = require('./editBookRoutes'),
+      editPageRoutes = require('./editPageRoutes');
 
-router.use('/book', editBookRoutes)
+router.use('/author', editAuthorRoutes);
+router.use('/book', editBookRoutes);
+router.use('/page', editPageRoutes);
 
 module.exports = router;
