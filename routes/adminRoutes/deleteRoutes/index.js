@@ -1,11 +1,11 @@
 const express = require('express'),
       router = express.Router(),
-      deleteAuthorRoutes = require('./deleteAuthorRoutes'),
-      deleteBookRoutes = require('./deleteBookRoutes'),
-      deletePageRoutes = require('./deletePageRoutes');
+      authorRoutes = require('./authorRoutes'),
+      bookRoutes = require('./bookRoutes'),
+      pageRoutes = require('./pageRoutes');
 
-router.use('/author', deleteAuthorRoutes);
-router.use('/book', deleteBookRoutes);
-router.use('/page', deletePageRoutes);
+router.use('/author', authorRoutes);
+router.use('/book', bookRoutes);
+router.use('/page', pageRoutes);
 
 module.exports = router;
