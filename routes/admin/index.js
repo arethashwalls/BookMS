@@ -1,16 +1,15 @@
 const express = require('express'),
       router = express.Router(),
-      authRoutes = require('./authRoutes'),
-      newRoutes = require('./newRoutes'),
-      viewRoutes = require('./viewRoutes'),
-      editRoutes = require('./editRoutes'),
-      deleteRoutes = require('./deleteRoutes'),
+      auth = require('./auth'),
+      author = require('./author'),
+      book = require('./book'),
+      page = require('./page'),
       jwtVerify = require('../../controllers').adminControllers.jwtVerify;
 
-router.use('/', authRoutes);
-router.use('/new', jwtVerify, newRoutes);
-router.use('/view', jwtVerify, viewRoutes);
-router.use('/edit', jwtVerify, editRoutes);
+router.use('/', auth);
+router.use('/authors', jwtVerify, author);
+router.use('/books', jwtVerify, book);
+router.use('/pages', jwtVerify, page);
 router.use('/delete', deleteRoutes);
 
 module.exports = router;
