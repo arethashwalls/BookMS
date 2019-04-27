@@ -61,7 +61,7 @@ class Editor {
                 const updateValue = {};
                 updateValue[field] = this.new.value;
                 //Call PUT route with object:
-                axios.put(`/admin/edit/${type}/${alias}`, {data: updateValue})
+                axios.put(`/admin/${type}s/${alias}`, {data: updateValue})
                 //Reload on success:
                 .then(response => {
                     if(response.status === 200) window.location.reload();
@@ -75,7 +75,7 @@ class Editor {
                 axios.put(`/admin/edit/${type}/${alias}`, {data: {alias: newAlias}})
                 //On sucess, reload with new alias as URL:
                 .then(response => {
-                    if(response.status === 200) window.location.replace(`/admin/view/${type}/${response.data.message.alias}`)
+                    if(response.status === 200) window.location.replace(`/admin/${type}s/${response.data.message.alias}`)
                 })
                 .catch(err => console.log(err));
             }

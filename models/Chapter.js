@@ -11,10 +11,6 @@ const chapterSchema = new Schema({
         required: true,
         unique: true
     },
-    ch_num: {
-        type: Number,
-        required: true
-    },
     tags: [String],
     pages: [{
         type: Schema.Types.ObjectId,
