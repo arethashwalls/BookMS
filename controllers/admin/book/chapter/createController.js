@@ -7,7 +7,7 @@ module.exports = {
         Book.findOne({alias})
         .populate('chapters')
         .then(book => {
-            res.render('admin/viewers/all/chapters', {
+            res.render('admin/viewers/all/bookSubViews/chapters', {
                 username: 'Areeeeth',
                 inAdmin: true,
                 num: 9,
@@ -28,7 +28,7 @@ module.exports = {
         .then(newChapter => {
             console.log('\nChapter created: ' + newChapter.title + '\n');
             Book.findOneAndUpdate({alias: bookAlias}, {$push: {chapters: newChapter._id}})
-            .then(() => res.redirect(`/admin/view/book/${bookAlias}/chapters`));
+            .then(() => res.redirect(`/admin/books/${bookAlias}/chapters/all`));
         })
         .catch(err => console.log(err));
     }

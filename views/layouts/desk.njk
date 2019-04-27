@@ -46,7 +46,7 @@
                 </a>
             {% elif isBookChapter %}
                 {% include "admin/creators/bookSubCreators/chapter.njk" %}
-                <a href="/admin/book/{{book.alias}}/chapters">
+                <a href="/admin/books/{{book.alias}}/chapters/all">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
             {% else %}
