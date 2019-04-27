@@ -11,7 +11,8 @@ module.exports = {
                 username: 'aaah',
                 siteTitle: 'aah',
                 inAdmin: true,
-                chapter
+                chapter,
+                book
             });
         });
     },
