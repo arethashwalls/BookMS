@@ -1,6 +1,7 @@
 {% extends "layouts/desk.njk" %}
 {% from "partials/editFieldForm.njk" import editFieldForm %}
 
+{% set script = "edit" %}
 {% set deskPageName = chapter.ch_title %}
 
 {% block deskBody %}
@@ -29,7 +30,7 @@
                     </a>
                 </h5>
                 <p id="show-chapter-ch_title">{{chapter.ch_title}}</p>
-                {{editFieldForm('chapter', 'title', chapter.alias)}}
+                {{editFieldForm('chapter', 'ch_title', chapter.alias)}}
                 <hr/>
                 <h5 class="title is-6">Alias:&nbsp;&nbsp;&nbsp;&nbsp;
                     <a id="toggle-edit-chapter-alias">
