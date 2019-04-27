@@ -1,5 +1,6 @@
 {% extends "layouts/desk.njk" %}
 
+{% set script = "delete" %}
 {% set whichPage = "page" %}
 
 {% block deskBody %}
@@ -9,7 +10,7 @@
             {% for page in stdalonePages %}
                 <article class="tile is-child is-4">
                     <div class="box">
-                        <button class="delete is-pulled-right" id="show-delete-warning"></button>
+                        <button class="delete is-pulled-right show-delete-warning" data-deleteid="{{page._id}}"></button>
                         <h5 class="title"><a href="/admin/pages/{{page.alias}}">{{page.p_title}}</a></h5>
                         <p class="subtitle">{{page.p_authors}}</p>
                         <hr/>

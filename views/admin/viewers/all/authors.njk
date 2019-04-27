@@ -1,5 +1,6 @@
 {% extends "layouts/desk.njk" %}
 
+{% set script = "delete" %}
 {% set whichPage = "author" %}
 
 {% block deskBody %}
@@ -9,7 +10,7 @@
             {% for author in authors %}
                 <article class="tile is-child is-4">
                     <div class="box">
-                        <button class="delete is-pulled-right" id="show-delete-warning"></button>                        
+                        <button class="delete is-pulled-right show-delete-warning" data-deleteid="{{author._id}}"></button>                        
                         <h5 class="title"><a href="/admin/authors/{{author.alias}}">{{author.name}}</a></h5></a>
                         <p>{{author.bio}}</p>
                         {% set deleteId = author._id %}
