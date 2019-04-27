@@ -17,16 +17,15 @@ module.exports = {
     },
     getPages: (req, res) => {
         const { alias } = req.params;
-        Book.findOne({alias})
+        Book.findOne({alias}, 'stdalone_pages title alias')
         .populate('stdalone_pages')
-        .then(response => {
-            const { stdalone_pages, site_title } = response;
-            stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
+        .then(book => {
+            book.stdalone_pages.forEach(page => page.p_content = truncate(page.p_content));
             res.render('admin/viewers/all/bookSubViews/pages', {
                 username: 'Arthur',
                 inAdmin: true,
-                siteTitle: site_title,
-                stdalonePages: stdalone_pages
+                siteTitle: 'Ah',
+                book
             });
         })
         .catch(err => console.log(err));
