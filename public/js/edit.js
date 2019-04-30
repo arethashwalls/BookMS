@@ -19,8 +19,10 @@ class Editor {
             e.preventDefault();
             //Get item's alias:
             const alias = this.edit.dataset.alias;
+            if(type === 'chapter') {
+            
             //For all but alias edits:
-            if(field !== 'alias') {
+            } else if(field !== 'alias') {
                 //Create an object with the update field and value:
                 const updateValue = {};
                 updateValue[field] = this.new.value;
