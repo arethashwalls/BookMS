@@ -7,7 +7,7 @@ router.route('/new')
     .get(createController.getNewPage)
     .post(createController.postNewPage);
 
-router.route('/p_num')
+router.route('/:p_num')
     .get(readController.getPage)
     // .put(updateController.updatePage);
     // .delete(deleteController.deleteChapter)

@@ -1,4 +1,4 @@
-const { Book, Page } = require('../../../../models'),
+const { Book } = require('../../../../models'),
      { truncate } = require('../../../../utils').formaters;
 
 module.exports = {

@@ -62,7 +62,8 @@ const allFields = {
     book: ['title', 'alias', 'cover', 'synopsis'],
     author: ['name', 'alias', 'bio'],
     page: ['p_title', 'alias', 'p_content'],
-    chapter: ['ch_title']
+    chapter: ['ch_title'],
+    page: ['p_title', 'p_content']
 }
 //Get current type from viewbox div:
 const type = document.getElementById('viewbox').dataset.type;
