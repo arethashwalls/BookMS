@@ -5,6 +5,6 @@ const express = require('express'),
       oneRoutes = require('./oneRoutes');
 
 router.use('/all', allRoutes);
-router.use('/:p_alias', oneRoutes);
+router.use('/', oneRoutes);
 
 module.exports = router;

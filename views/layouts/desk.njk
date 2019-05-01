@@ -48,6 +48,11 @@
                 <a href="/admin/books/{{book.alias}}/chapters/all">
                     <button class="modal-close is-large" aria-label="close"></button>
                 </a>
+            {% elif isBookPage %}
+                {% include "admin/creators/bookSubCreators/page.njk" %}
+                <a href="/admin/books/{{book.alias}}/pages/all">
+                    <button class="modal-close is-large" aria-label="close"></button>
+                </a>
             {% else %}
             </div>
             <a href="/admin/books/all">

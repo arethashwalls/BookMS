@@ -8,8 +8,8 @@ router.route('/new')
     .post(createController.postNewPage);
 
 router.route('/')
-    .get(readController.getPage);
-    // .put(updateController.updateChapter)
+    .get(readController.getPage)
+    // .put(updateController.updatePage);
     // .delete(deleteController.deleteChapter)
 
 module.exports = router;

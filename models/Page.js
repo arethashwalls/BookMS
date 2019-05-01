@@ -11,9 +11,6 @@ const pageSchema = new Schema({
         required: true,
         unique: true
     },
-    p_num: {
-        type: Number
-    },
     tags: [String],
     p_content: String
 });

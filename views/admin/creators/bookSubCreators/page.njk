@@ -1,0 +1,23 @@
+<h1 class="title">Create a new chapter in <em>{{book.title}}</em>.</h1>
+
+<form action="/admin/books/{{book.alias}}/pages/new" method="post">
+    <div class="field">
+        <label class="label">Title</label>
+        <div class="control">
+            <input class="input" type="text" name="p_title" placeholder="All Characters">
+        </div>
+    </div>
+    <div class="field">
+        <label class="label">Content</label>
+        <div class="control">
+            <textarea class="textarea" name="p_content" placeholder="Stella: T Tauri from GN-z11 with powerful stellar winds and a sweet personality.
+            
+Omni: A mega-corporation founded near Ursa Major, specializing in solar energy extraction and intergalactic logistics, as well..."></textarea>
+        </div>
+    </div>
+    <div class="field">
+        <div class="control is-clearfix">
+            <button class="button is-pulled-right is-primary">Submit</button>
+        </div>
+    </div>
+</form>
