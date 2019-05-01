@@ -12,7 +12,8 @@ module.exports = {
                 siteTitle: 'aah',
                 inAdmin: true,
                 chapter,
-                book
+                book, 
+                ch_num
             });
         });
     },

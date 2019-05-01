@@ -19,31 +19,39 @@ class Editor {
             e.preventDefault();
             //Get item's alias:
             const alias = this.edit.dataset.alias;
-            if(type === 'chapter') {
-            
+            //Call PUT route with object:
             //For all but alias edits:
-            } else if(field !== 'alias') {
+            if (field !== 'alias') {
                 //Create an object with the update field and value:
                 const updateValue = {};
                 updateValue[field] = this.new.value;
                 //Call PUT route with object:
-                axios.put(`/admin/${type}s/${alias}`, {data: updateValue})
-                //Reload on success:
-                .then(response => {
-                    if(response.status === 200) window.location.reload();
-                })
-                .catch(err => console.log(err));
+                if(type === 'chapter') {
+                    const chNum = this.toggle.dataset.chnum;
+                    axios.put(`/admin/books/${alias}/chapters/${chNum}`, { data: updateValue })
+                    .then(response => {
+                        if (response.status === 200) window.location.reload();
+                    })
+                    .catch(err => console.log(err));
+                } else {
+                    axios.put(`/admin/${type}s/${alias}`, { data: updateValue })
+                    //Reload on success:
+                    .then(response => {
+                        if (response.status === 200) window.location.reload();
+                    })
+                    .catch(err => console.log(err));
+                }
             //For alias edits:
             } else {
                 //Get new alias:
                 const newAlias = this.new.value;
                 //Call PUT route with new alias:
-                axios.put(`/admin/edit/${type}/${alias}`, {data: {alias: newAlias}})
-                //On sucess, reload with new alias as URL:
-                .then(response => {
-                    if(response.status === 200) window.location.replace(`/admin/${type}s/${response.data.message.alias}`)
-                })
-                .catch(err => console.log(err));
+                axios.put(`/admin/edit/${type}/${alias}`, { data: { alias: newAlias } })
+                    //On sucess, reload with new alias as URL:
+                    .then(response => {
+                        if (response.status === 200) window.location.replace(`/admin/${type}s/${response.data.message.alias}`)
+                    })
+                    .catch(err => console.log(err));
             }
         });
     }
@@ -54,9 +62,9 @@ const allFields = {
     book: ['title', 'alias', 'cover', 'synopsis'],
     author: ['name', 'alias', 'bio'],
     page: ['p_title', 'alias', 'p_content'],
-    chapter: ['ch_title', 'alias']
+    chapter: ['ch_title']
 }
 //Get current type from viewbox div:
 const type = document.getElementById('viewbox').dataset.type;
 //If viewbox had a type, loop through all fields for that type and add an editor:
-if(type) allFields[type].forEach(field => new Editor(type, field));
+if (type) allFields[type].forEach(field => new Editor(type, field));
