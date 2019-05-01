@@ -3,17 +3,20 @@ const { Book, Page } = require('../../../../models'),
 
 module.exports = {
     getPage: (req, res) => {
-        const { p_alias } = req.params;
-        Page.findOne({alias: p_alias})
-        .then(page => {
-            res.render('admin/viewers/one/page', {
+        const { alias, p_num } = req.params;
+        Book.findOne({alias})
+        .populate('stdalone_pages')
+        .then(book => {
+            page = book.stdalone_pages[p_num - 1];
+            res.render('admin/viewers/one/bookSubViews/page', {
                 username: 'aaah',
                 siteTitle: 'aah',
                 inAdmin: true,
-                page
+                page,
+                book, 
+                num: p_num
             });
-        })
-        .catch(err => console.log(err));
+        });
     },
     getPages: (req, res) => {
         const { alias } = req.params;

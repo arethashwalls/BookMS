@@ -26,9 +26,9 @@ class Editor {
                 const updateValue = {};
                 updateValue[field] = this.new.value;
                 //Call PUT route with object:
-                if(type === 'chapter') {
-                    const chNum = this.toggle.dataset.chnum;
-                    axios.put(`/admin/books/${alias}/chapters/${chNum}`, { data: updateValue })
+                if(type === 'chapter' || type === 'bookPage') {
+                    const num = this.toggle.dataset.num;
+                    axios.put(`/admin/books/${alias}/${type}/${num}`, { data: updateValue })
                     .then(response => {
                         if (response.status === 200) window.location.reload();
                     })

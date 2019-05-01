@@ -13,7 +13,7 @@ module.exports = {
                 inAdmin: true,
                 chapter,
                 book, 
-                ch_num
+                num: ch_num
             });
         });
     },
