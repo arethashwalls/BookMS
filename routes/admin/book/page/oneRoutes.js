@@ -9,7 +9,7 @@ router.route('/new')
 
 router.route('/:p_num')
     .get(readController.getPage)
-    // .put(updateController.updatePage);
+    .put(updateController.updatePage);
     // .delete(deleteController.deleteChapter)
 
 module.exports = router;

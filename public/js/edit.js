@@ -28,7 +28,9 @@ class Editor {
                 //Call PUT route with object:
                 if(type === 'chapter' || type === 'bookPage') {
                     const num = this.toggle.dataset.num;
-                    axios.put(`/admin/books/${alias}/${type}/${num}`, { data: updateValue })
+                    //For book sub-pages, change type to 'page' for proper routing:
+                    if(type === 'bookPage') type = 'page';
+                    axios.put(`/admin/books/${alias}/${type}s/${num}`, { data: updateValue })
                     .then(response => {
                         if (response.status === 200) window.location.reload();
                     })
