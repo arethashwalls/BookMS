@@ -4,7 +4,6 @@ module.exports = {
     updateChapter: (req, res) => {
         const { alias, ch_num } = req.params;
         const updateFields = req.body.data;
-        console.log(updateFields)
         Book.findOne({alias})
         .then(book => {
             const ch_id = book.chapters[ch_num - 1];
