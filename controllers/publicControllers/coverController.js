@@ -2,8 +2,8 @@ const { Book } = require('../../models');
 const { authorfy } = require('../../utils/formaters');
 
 module.exports = (req, res) => {
-        const urlTitle = req.params.url_title;
-        Book.findOne({url_title: urlTitle})
+        const {alias} = req.params;
+        Book.findOne({alias})
         .populate('authors')
         .then(data => {
             res.render('index', {

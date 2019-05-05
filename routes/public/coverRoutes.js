@@ -2,7 +2,7 @@ const express = require('express'),
   router = express.Router(),
   { coverController } = require('../../controllers/').publicControllers;
 
-router.route('/:url_title')
+router.route('/:alias')
     .get(coverController);
 
 module.exports = router;
