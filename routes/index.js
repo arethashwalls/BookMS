@@ -3,7 +3,7 @@ const express = require('express'),
       public = require('./public'),
       admin = require('./admin');
 
-router.use('/', public);
+// router.use('/', public);
 router.use('/admin', admin);
 
 module.exports = router;

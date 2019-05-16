@@ -6,7 +6,7 @@ const express = require('express'),
       pageRoutes = require('./page');
 
 router.use('/all', allRoutes);
-router.use('/', oneRoutes);
 router.use('/:ch_num/pages', pageRoutes);
+router.use('/', oneRoutes);
 
 module.exports = router;
